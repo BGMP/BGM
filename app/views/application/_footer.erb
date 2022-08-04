@@ -18,7 +18,8 @@
             Organization
           </li>
           <li>
-            <a href="<%= repository_path(web_repo_or_first) %>">Development Logs</a>
+            <% repo = web_repo_or_first %>
+            <a href="<%= repo.nil? ? repositories_path : repo %>">Development Logs</a>
           </li>
           <li>
             <a href="<%= ORG::GIT_ISSUES %>" target="_blank">Report a Bug</a>

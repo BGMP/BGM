@@ -1,0 +1,126 @@
+.thredded--navigation--search {
+  $input-padding-x: 0.75rem;
+
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+
+  @include thredded-media-tablet-and-down {
+    position: initial;
+    margin-bottom: $thredded-small-spacing;
+  }
+
+  label {
+    display: none;
+  }
+
+  input[type="search"] {
+    box-shadow: none;
+    width: 100%;
+
+    @include thredded-media-desktop-and-up {
+      $line-height: 1rem;
+      background: transparent;
+      border-color: transparent;
+      font-size: $thredded-font-size-small;
+      line-height: $line-height;
+      min-width: 13rem;
+      width: auto;
+      padding: 0.9375rem $input-padding-x 0.875rem $input-padding-x;
+      margin-top: -1px;
+      margin-bottom: 0;
+
+      &, &:focus {
+        transition: background, border-color, box-shadow, min-width 0.15s ease-out 0s;
+      }
+
+      &:focus, &:not(:placeholder-shown) {
+        background: $thredded-background-color;
+        box-shadow: none;
+        margin-right: 0;
+        margin-left: 0;
+        min-width: 16rem;
+        text-align: left;
+      }
+
+      &:hover {
+        border-color: transparent;
+        box-shadow: none;
+      }
+
+      &::-webkit-search-decoration,
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-results-button,
+      &::-webkit-search-results-decoration {
+        // Remove excessive padding on Safari.
+        max-height: $line-height;
+      }
+
+      &:placeholder-shown, &:not(:focus) {
+        // On Chrome, the search [x] takes up space even when invisible,
+        // breaking the placeholder positioning. Remove it:
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-decoration {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+
+      &::placeholder {
+        color: $thredded-secondary-nav-color;
+        transition: $thredded-action-transition;
+        height: inherit;
+        line-height: inherit;
+        // Firefox applies default opacity of 0.54, while all the other browsers use 1.
+        // See https://bugzilla.mozilla.org/show_bug.cgi?id=556145
+        opacity: 1;
+      }
+
+      &:hover:not(:focus) {
+        &:placeholder-shown {
+          cursor: pointer;
+        }
+        &::placeholder {
+          color: $thredded-nav-hover-color;
+        }
+      }
+
+      &:focus, &:not(:placeholder-shown) {
+        border-color: $thredded-base-border-color;
+      }
+    }
+  }
+
+  [type="submit"] {
+    display: none;
+  }
+
+  @media print {
+    display: none;
+  }
+
+  // On the left:
+  right: auto;
+  left: 0;
+  @include thredded-media-desktop-and-up {
+    input[type="search"] {
+      text-align: left;
+      margin-right: 0;
+      margin-left: -$input-padding-x;
+    }
+  }
+
+  // On the right:
+  &--right {
+    right: 0;
+    left: auto;
+    @include thredded-media-desktop-and-up {
+      input[type="search"] {
+        text-align: right;
+        margin-right: -$input-padding-x;
+        margin-left: 0;
+      }
+    }
+  }
+}

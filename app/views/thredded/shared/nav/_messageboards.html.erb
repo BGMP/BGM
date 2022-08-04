@@ -1,0 +1,6 @@
+<% if policy(Thredded::MessageboardGroup.new).create? %>
+  <%= link_to t('thredded.messageboard_group.create'), "#{new_messageboard_group_path}", :rel => 'nofollow', :class => 'dropdown-item' %>
+<% end %>
+<% if policy(Thredded::Messageboard.new).create? %>
+  <%= link_to t('thredded.messageboard.create'), "#{new_messageboard_path}", :rel => 'nofollow', :class => 'dropdown-item' %>
+<% end %>

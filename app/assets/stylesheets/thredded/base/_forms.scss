@@ -1,0 +1,84 @@
+%thredded--form--input {
+  background: $thredded-form-background;
+  border: $thredded-form-border;
+  box-shadow: $thredded-form-box-shadow;
+  color: $thredded-form-color;
+  font-family: $thredded-base-font-family;
+  font-size: $thredded-base-font-size;
+  padding: $thredded-small-spacing;
+  transition: border-color;
+
+  &:hover {
+    border-color: $thredded-form-border-hover-color;
+  }
+
+  &:focus {
+    border-color: $thredded-form-border-focus-color;
+    box-shadow: $thredded-form-box-shadow, 0 0 3px $thredded-action-color;
+    outline: none;
+  }
+}
+
+%thredded--form {
+  fieldset {
+    background-color: $thredded-background-color;
+    border: $thredded-base-border;
+    margin: 0 0 $thredded-small-spacing;
+    padding: $thredded-base-spacing;
+  }
+
+  input,
+  label,
+  select {
+    display: block;
+    font-family: $thredded-base-font-family;
+    font-size: $thredded-base-font-size;
+  }
+
+  label {
+    font-weight: 600;
+    margin-bottom: $thredded-small-spacing / 2;
+
+    &.required::after {
+      content: "*";
+    }
+
+    abbr {
+      display: none;
+    }
+  }
+
+  [type='color'], [type='date'], [type='datetime'], [type='datetime-local'], [type='email'], [type='month'],
+  [type='number'], [type='password'], [type='search'], [type='tel'], [type='text'], [type='time'], [type='url'],
+  [type='week'], input:not([type]), textarea, select[multiple=multiple] {
+    @extend %thredded--form--input;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  textarea {
+    line-height: $thredded-base-line-height;
+    resize: vertical;
+  }
+
+  input[type="search"] {
+    appearance: none;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    display: inline;
+    margin-right: $thredded-small-spacing / 2;
+  }
+
+  input[type="file"] {
+    padding-bottom: $thredded-small-spacing;
+    width: 100%;
+  }
+
+  select {
+    margin-bottom: $thredded-small-spacing;
+    max-width: 100%;
+    width: auto;
+  }
+}

@@ -1,0 +1,127 @@
+.thredded--post {
+  position: relative;
+  margin-bottom: $thredded-base-spacing;
+  @include thredded-media-desktop-and-up {
+    margin-bottom: $thredded-large-spacing;
+  }
+}
+
+.thredded--post--dropdown--toggle {
+  @extend %thredded--dropdown-menu--toggle;
+  fill: currentColor;
+  box-sizing: content-box;
+  color: $thredded-action-color;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  padding: 0.875rem 0.875rem 0.875rem 1.5rem;
+  margin-right: -0.875rem;
+  -webkit-tap-highlight-color: transparent;
+  @include thredded-media-content-breakout {
+    margin-top: -0.75rem;
+  }
+}
+
+.thredded--post--dropdown {
+  @extend %thredded--dropdown-menu--container;
+  float: right;
+  @media print {
+    display: none;
+  }
+}
+
+.thredded--post--dropdown--actions {
+  @extend %thredded--dropdown-menu--actions-bottom-left;
+  margin-top: -0.875rem;
+}
+
+.thredded--post--dropdown--actions--item {
+  @extend %thredded--dropdown-menu--actions--item;
+}
+
+.thredded--post--avatar {
+  border-radius: 50%;
+  display: inline-block;
+  height: 1.75rem; // 28px
+  margin-right: $thredded-inline-spacing;
+  position: relative;
+  top: 6px;
+  vertical-align: baseline;
+  width: 1.75rem; // 28px
+
+  @media (min-width: $thredded-grid-container-max-width + $thredded-content-breakout-min-width + 0.00001rem) {
+    height: 2.25rem; // 36px
+    left: -3rem;
+    position: absolute;
+    top: -0.5rem;
+    width: 2.25rem; // 36px
+  }
+
+  @media (min-width: $thredded-grid-container-max-width + $thredded-content-breakout-min-width + 9.5rem + 0.00001rem) {
+    height: 3.25rem;
+    left: -4.125rem;
+    width: 3.25rem;
+  }
+}
+
+.thredded--post--topic {
+  @extend %thredded--heading;
+  font-size: $thredded-base-font-size * 1.25; // 24px
+  line-height: 1.2;
+  margin-bottom: $thredded-small-spacing / 2;
+}
+
+.thredded--post--user,
+.thredded--post--topic,
+.thredded--post--user-and-topic {
+  @extend %thredded--heading;
+  display: inline;
+  font-size: 1.125rem; // 18px
+  line-height: 1.2;
+  margin-right: $thredded-inline-spacing;
+
+  a {
+    @extend %thredded--link;
+  }
+}
+
+.thredded--post--user {
+  a {
+    color: $thredded-text-color;
+  }
+}
+
+.thredded--post--created-at {
+  @extend %thredded--paragraph;
+  font-size: $thredded-font-size-small;
+  color: $thredded-secondary-text-color;
+  display: inline-block;
+}
+
+.thredded--post--content {
+  font-size: 1.063rem; // 17px
+  line-height: 1.65;
+  word-break: break-word;
+  a {
+    @extend %thredded--link;
+  }
+  p {
+    @extend %thredded--paragraph;
+  }
+  hr {
+    @extend %thredded--hr;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  table {
+    @extend %thredded--table;
+  }
+  blockquote {
+    @extend %thredded--blockquote;
+  }
+  pre {
+    overflow-x: auto;
+  }
+}

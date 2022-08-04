@@ -1,0 +1,26 @@
+.thredded--post-form {
+  label {
+    display: none;
+  }
+
+  &--wrapper {
+    border-top: $thredded-base-border;
+    padding-top: $thredded-base-spacing;
+  }
+
+  &--title {
+    @extend %thredded--heading;
+    font-size: 1.25rem; // 20px
+    margin-bottom: $thredded-base-spacing;
+  }
+
+  &--submit {
+    margin-top: $thredded-small-spacing;
+  }
+}
+
+.thredded--post-form--wrapper {
+  @media print {
+    display: none;
+  }
+}

@@ -1,0 +1,31 @@
+%thredded--list-unstyled {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+%thredded--default-ul {
+  list-style-type: disc;
+  margin-bottom: $thredded-small-spacing;
+  padding-left: $thredded-base-spacing;
+}
+
+%thredded--default-ol {
+  list-style-type: decimal;
+  margin-bottom: $thredded-small-spacing;
+  padding-left: $thredded-base-spacing;
+}
+
+%thredded--dl {
+  margin-bottom: $thredded-small-spacing;
+
+  dt {
+    font-weight: bold;
+    margin-top: $thredded-small-spacing;
+  }
+
+  dd {
+    margin: 0;
+  }
+}
+

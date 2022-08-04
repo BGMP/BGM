@@ -1,0 +1,56 @@
+<% topic = @posts.topic %>
+<% content_for :thredded_page_title, topic.title %>
+<% content_for :thredded_page_id, 'thredded--topic-show' %>
+<% content_for :thredded_breadcrumbs, render('thredded/shared/breadcrumbs') %>
+
+<%= thredded_page do %>
+
+  <%= content_tag :section,
+                  id: dom_id(topic),
+                  class: ['thredded--main-section', 'thredded--topic', *topic_css_classes(topic)] do
+  %>
+
+    <!-- Topic header -->
+    <%= render 'thredded/topics/header', topic: topic %>
+
+    <!-- Top pagination -->
+    <%= view_hooks.posts_common.pagination_top.render(self, posts: @posts) do %>
+      <%= paginate @posts %>
+    <% end %>
+
+    <!-- All users's replies -->
+    <%= render_posts @posts,
+                     partial: 'thredded/posts/post',
+                     content_partial: 'thredded/posts/content',
+                     locals: { actions: { quote: true } }
+    %>
+    <%= view_hooks.posts_common.pagination_bottom.render(self, posts: @posts) do
+    %>
+    <% end %>
+
+    <hr/>
+
+    <!-- Reply text box and buttons -->
+    <% if user_signed_in? %>
+      <% unless topic.locked? and (!current_user.admin and !current_user.mod) %>
+        <p>
+          <a class="btn btn-sm btn-primary" data-toggle="collapse" href="#new-post-collapsible" role="button" aria-expanded="false" aria-controls="new-post-collapsible">
+            Reply
+          </a>
+        </p>
+      <% end %>
+    <% end %>
+
+    <div class="collapse" id="new-post-collapsible">
+      <% if policy(@new_post.post).create? %>
+        <%= render 'thredded/posts/form',
+                   post:        @new_post,
+                   button_text: t('thredded.posts.form.create_btn'),
+                   button_submitting_text: t('thredded.posts.form.create_btn_submitting') %>
+      <% end %>
+    </div>
+
+    <!-- Bottom pagination -->
+    <%= paginate @posts %>
+  <% end %>
+<% end %>

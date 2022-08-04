@@ -1,0 +1,45 @@
+<%# @param post [Thredded::PostView] %>
+<!-- A post by a user, at any topic -->
+<header>
+  <hr/>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="post-head">
+          <a href="<%= user_path post.user %>"></a>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="span9">
+          <rem class="post-comment"><%= user_link post.user %></rem>
+          <%= ApplicationController.renderer.new(request.env.slice('warden'))
+              .render(partial: "users/badges", locals: { user: post.user })
+          %>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="pull-right">
+          <% if user_signed_in? %>
+            <div class="btn-toolbar" role="group" aria-label="per-post-action-buttons">
+              <%# FIXME: Functionality is kind of rusty, and needs rework. Remove this comment for testing.
+                =render 'thredded/posts_common/actions/quote', post: post
+              %>
+            <% if current_user.mod? or current_user.admin? or current_user == post.user %>
+                <%= render 'thredded/posts_common/actions/edit', post: post %>
+                <% unless post.first_in_page? %>
+                  &nbsp;<%= render 'thredded/posts_common/actions/delete', post: post %>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <p class="posted-time-ago">posted <%= time_ago post.created_at %></p>
+      </div>
+    </div>
+  </div>
+</header>

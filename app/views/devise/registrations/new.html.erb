@@ -1,0 +1,55 @@
+<div class="container">
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <h3>Register</h3>
+  <hr/>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <h6>Your username must be unique, and it's unmodifiable!</h6>
+          <div class="input-group">
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", :placeholder => 'Username (3 characters minimum)', :class => 'form-control devise-form-field' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => 'Email', :class => 'form-control devise-form-field' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <% if @minimum_password_length %>
+              <%= f.password_field :password, autocomplete: "new-password", :placeholder => "Password (#{@minimum_password_length} characters minimum)", :class => 'form-control devise-form-field' %>
+            <% else %>
+              <%= f.password_field :password, autocomplete: "new-password", :placeholder => 'Password', :class => 'form-control devise-form-field' %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => 'Confirm password', :class => 'form-control devise-form-field' %>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Register", :class => 'btn btn-primary' %>
+        </div>
+
+        <br/>
+        <%= render "devise/shared/links" %>
+        <br/>
+
+      </div>
+    </div>
+
+  <% end %>
+
+  <br/>
+</div>

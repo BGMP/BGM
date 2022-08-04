@@ -1,0 +1,52 @@
+<%= form_for topic,
+             url: topic.submit_path,
+             html: {
+                 'data-thredded-topic-form' => true,
+                 'data-autocomplete-url' => autocomplete_users_path,
+                 'data-autocomplete-min-length' => Thredded.autocomplete_min_length,
+                 'data-thredded-submit-hotkey' => true,
+             } do |form| %>
+  <%= hidden_field_tag("next_page", params[:next_page]) %>
+
+  <div class="row">
+    <div class="col-md-4">
+
+      <div class="form-group">
+        <div class="input-group">
+          <%= render 'thredded/shared/field_errors', messages: form.object.errors[:title] %>
+          <%= form.text_field :title,
+                              placeholder: t('thredded.topics.form.title_label'),
+                              required: true,
+                              autocomplete: 'off',
+                              :class => 'form-control thredded-form-field'
+          %>
+        </div>
+      </div>
+
+      <br/>
+
+      <% if form.object.category_options.any? %>
+        <%= form.select :category_ids,
+                        form.object.category_options,
+                        {},
+                        { multiple: true,
+                          'data-placeholder' => t('thredded.topics.form.categories_placeholder'),
+                          :class => 'form-control',
+                          :style => 'border-color: gray; color: #bdbdbd; background-color: #212121; display: inline-block; width: 130px; cursor: pointer;' }
+        %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render 'thredded/posts_common/form/content',
+             form: form,
+             content_label: t('thredded.topics.form.content_label'),
+             preview_url: topic.preview_path,
+             :reply_box => false
+  %>
+
+  <%= render 'thredded/topics/topic_form_admin_options', form: form %>
+
+  <%= form.submit t('thredded.topics.form.create_btn'), class: 'btn btn-primary' %>
+<% end %>
+<br/>

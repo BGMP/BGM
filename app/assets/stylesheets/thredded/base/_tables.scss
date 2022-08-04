@@ -1,0 +1,17 @@
+%thredded--table {
+  font-feature-settings: "kern", "liga", "tnum";
+  border-collapse: collapse;
+  margin: $thredded-small-spacing 0;
+
+  td, th {
+    text-align: center;
+    padding: 0.5rem 0.75rem;
+    border-bottom: $thredded-base-border;
+    vertical-align: middle;
+    word-break: break-word;
+  }
+
+  th {
+    font-weight: bold;
+  }
+}

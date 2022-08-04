@@ -1,0 +1,54 @@
+.thredded--currently-online {
+  background-color: $thredded-base-border-color;
+  bottom: -1.25rem;
+  box-sizing: content-box;
+  padding: $thredded-base-spacing;
+  position: fixed;
+  right: 0;
+  width: 16.25rem; // 260px
+  z-index: 10;
+
+  @include thredded-media-mobile {
+    display: none;
+  }
+
+  &.thredded--is-expanded {
+    bottom: 0;
+    position: fixed;
+    right: 0;
+  }
+
+  &--title {
+    @extend %thredded--heading;
+    margin-bottom: $thredded-base-spacing;
+  }
+
+  &--avatar {
+    background-color: $thredded-text-color;
+    border-radius: 50%;
+    display: inline-block;
+    height: 1.75rem;
+    margin-right: $thredded-small-spacing;
+    vertical-align: middle;
+    width: 1.75rem;
+  }
+
+  &--user {
+    padding: $thredded-small-spacing 0;
+  }
+
+  &--users {
+    @extend %thredded--list-unstyled;
+    height: 0;
+    visibility: hidden;
+  }
+
+  &.thredded--is-expanded &--users {
+    height: auto;
+    visibility: visible;
+  }
+
+  @media print {
+    display: none;
+  }
+}

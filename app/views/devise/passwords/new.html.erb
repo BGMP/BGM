@@ -1,0 +1,26 @@
+<div class="container">
+
+  <h3>Recover password</h3>
+  <hr/>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => 'Email', :class => 'form-control devise-form-field' %>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Send", :class => 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <br/>
+  <%= render "devise/shared/links" %>
+  <br/>
+</div>

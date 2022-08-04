@@ -1,0 +1,11 @@
+<%= button_to post.destroy_path,
+              method: :delete,
+              "data-toggle": "tooltip",
+              "data-placement": "top",
+              title: t('thredded.posts.delete'),
+              class: 'btn btn-sm post-action-button',
+              style: 'background-color: #212121; color: #beb8bc;',
+              data: {confirm: I18n.t('thredded.posts.delete_confirm')} do
+%>
+  <i class="fa fa-trash" aria-hidden="true"></i>
+<% end %>

@@ -1,0 +1,19 @@
+<div class="btn-group" role="group" aria-label="moderator-action-set">
+  <% unless post.approved? %>
+    <%= button_to moderate_post_path,
+                  class:  'btn btn-sm btn-success btn-block',
+                  params: { id: post.to_model.id, moderation_state: 'approved' } do %>
+      <i class="fa fa-check" aria-hidden="true"></i>
+    <% end %>
+  <% end %>
+  &nbsp;
+  <% unless post.blocked? %>
+    <%= button_to moderate_post_path,
+                  class:  'btn btn-sm btn-danger btn-block',
+                  style: 'width: 31px; height: 31px;',
+                  params: { id: post.to_model.id, moderation_state: 'blocked' } do
+    %>
+      <i class="fa fa-times" aria-hidden="true"></i>
+    <% end %>
+  <% end %>
+</div>

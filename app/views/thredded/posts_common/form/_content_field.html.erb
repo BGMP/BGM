@@ -1,0 +1,24 @@
+<div class="form-group">
+  <% if reply_box %>
+    <h5 class="post-reply-title"><!-- <%= form.label :content, content_label %> -->
+      <!-- <small data-toggle="tooltip" title="Remember to read the rules before posting!" data-placement="top"><i class="fa fa-info-circle" aria-hidden="true"></i></small> -->
+    </h5>
+  <% else %>
+    <div style="margin-top: -20px;"></div>
+  <% end %>
+
+  <%= view_hooks.post_form.content_text_area.render self, form: form, content_label: content_label do %>
+      <%= form.text_area :content, {rows: 5,
+                          required: true,
+                          autofocus: !!params[:autofocus_new_post_content],
+                          :class => 'form-control thredded-form-field',
+                          :spellcheck => false,
+                          :placeholder => reply_box ? 'Your reply...' : 'Start your thread...'
+      }
+      %>
+  <% end %>
+
+  <!-- @Deprecated <%= render 'thredded/posts_common/form/before_content', form: form %> -->
+  <!-- @Deprecated <%= render 'thredded/posts_common/form/after_content', form: form %> -->
+</div>
+

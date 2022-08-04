@@ -1,0 +1,79 @@
+<% content_for :thredded_page_title, t('thredded.messageboard.index.page_title') %>
+<% content_for :thredded_page_id, 'thredded--messageboards-index' %>
+<% content_for :thredded_breadcrumbs, render('thredded/shared/breadcrumbs') %>
+
+<%= thredded_page do %>
+  <% @topics = [] %>
+  <% Thredded::MessageboardGroup.all.each do |group| %>
+    <% (group.messageboards.collect { |board| board.topics }).each do |topic_collection| %>
+      <% topic_collection.each do |topic| %>
+        <% @topics.push(topic) %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if @topics.any? %>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th width="60%">Title</th>
+          <th width="25%">Last post</th>
+          <th width="10%"><div align="center">Posts</div></th>
+        </tr>
+        </thead>
+        <tbody>
+          <% @topics = Kaminari.paginate_array(@topics).page(params[:page]).per(15) %>
+
+          <%= paginate @topics %>
+
+          <% @topics.sort_by(&:last_post_at).reverse!.each do |topic| %>
+            <tr>
+              <td>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <%= link_to topic.title, "#{forums_path}/#{topic.messageboard.slug}/#{topic.slug}" %>
+                      <% if topic.locked? %>
+                        <i data-toggle="tooltip" data-placement="top" title="<%= t('thredded.topics.locked.label') %>" class="fa fa-lock" aria-hidden="true"></i>
+                      <% end %>
+                      <% if topic.sticky? %>
+                        <i data-toggle="tooltip" data-placement="top" title="<%= t('thredded.topics.sticky.label') %>" class="fa fa-thumb-tack" aria-hidden="true"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="row started-by">
+                    <div>
+                      <small><%= user_link topic.user %></small>
+                      <small><%= time_ago(topic.created_at, html_options: {
+                          :"data-toggle" => "tooltip",
+                          :"data-placement" => "top",
+                          :title => pretty_time(topic.created_at)
+                      }) %> in <%= link_to "#{topic.messageboard.group.name} → #{topic.messageboard.name}", "#{forums_path}/#{topic.messageboard.slug}" %></small>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="container latest-post">
+                  <div class="row">
+                    <%= user_link topic.last_user %>
+                  </div>
+                  <div class="row">
+                    <small><%= time_ago topic.last_post_at %></small>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div align="center"><%= topic.posts_count %></div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= paginate @topics %>
+  <% else %>
+    <h5 align="center">No topics to display</h5>
+  <% end %>
+<% end %>

@@ -1,0 +1,39 @@
+.thredded--form-list {
+  @extend %thredded--list-unstyled;
+
+  &.on-top {
+    margin-bottom: $thredded-small-spacing;
+  }
+
+  li {
+    transition: all 0.15s ease-out 0s;
+    margin-bottom: $thredded-small-spacing;
+  }
+
+  label {
+    transition: all 0.15s ease-out 0s;
+  }
+
+  label ~ label {
+    display: inline-block;
+    font-weight: normal;
+    margin-right: 15px;
+  }
+}
+
+.thredded--form-list--admin-options {
+  label {
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: $thredded-base-spacing;
+  }
+}
+
+.thredded--form-list--hint {
+  @extend %thredded--paragraph;
+  color: $thredded-secondary-text-color;
+  font-size: $thredded-font-size-small;
+  font-weight: normal;
+  position: relative;
+}

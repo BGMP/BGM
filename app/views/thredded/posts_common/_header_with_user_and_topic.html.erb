@@ -1,0 +1,18 @@
+<%# @param post [Thredded::PostView] %>
+<%# @param user [Thredded.user_class] optional %>
+<%# @param post_user_link [String] optional %>
+<% topic = post.to_model.postable %>
+<% user ||= post.user %>
+<% post_user_link ||= user_link(user) %>
+
+<hr/>
+
+<h5>
+  <%=
+    topic_link = link_to(topic.title, post.permalink_path)
+    t 'thredded.users.user_posted_in_topic_html', user_link: post_user_link, topic_link: topic_link
+  %>
+  <small>- <%= time_ago post.created_at %></small>
+</h5>
+
+

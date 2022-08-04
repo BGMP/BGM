@@ -1,0 +1,46 @@
+<%= content_tag :article,
+                id:    dom_id(topic),
+                data: {
+                    topic: topic.id,
+                    messageboard: topic.messageboard_id,
+                    unread: !topic.read? || nil,
+                    followed: topic.followed? || nil
+                } do
+%>
+  <tr>
+    <td>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6">
+            <%= link_to topic.title, topic.path %>
+            <% if topic.locked? %>
+              <i data-toggle="tooltip" data-placement="top" title="<%= t('thredded.topics.locked.label') %>" class="fa fa-lock" aria-hidden="true"></i>
+            <% end %>
+            <% if topic.sticky? %>
+              <i data-toggle="tooltip" data-placement="top" title="<%= t('thredded.topics.sticky.label') %>" class="fa fa-thumb-tack" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="row started-by">
+          <div>
+            <small><%= user_link topic.user %></small>
+            <small><%= time_ago(topic.created_at, html_options: { :"data-toggle" => "tooltip", :"data-placement" => "top", :title => pretty_time(topic.created_at) }) %></small>
+          </div>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="container latest-post">
+        <div class="row">
+          <%= user_link topic.last_user %>
+        </div>
+        <div class="row">
+          <small><%= time_ago topic.last_post_at %></small>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div align="center"><%= topic.posts_count %></div>
+    </td>
+  </tr>
+<% end %>

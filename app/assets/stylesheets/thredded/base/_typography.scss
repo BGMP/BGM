@@ -1,0 +1,72 @@
+%thredded--heading {
+  font-family: $thredded-heading-font-family;
+  font-size: $thredded-base-font-size;
+  line-height: $thredded-heading-line-height;
+  margin: 0 0 $thredded-small-spacing;
+}
+
+%thredded--link {
+  color: $thredded-action-color;
+  text-decoration: none;
+  transition: $thredded-action-transition;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $thredded-action-hover-color;
+    text-decoration: none;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+%thredded--hr {
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-top: $thredded-base-border;
+  margin: $thredded-base-spacing 0;
+}
+
+%thredded--paragraph {
+  margin: 0 0 $thredded-small-spacing;
+}
+
+%thredded--icon {
+  fill: currentColor;
+}
+
+%thredded--blockquote {
+  margin: 0 0 0.75rem;
+  border-left: solid 5px $thredded-blockquote-border-color;
+  padding: 1rem;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  @include thredded-media-mobile {
+    padding: ($thredded-small-spacing / 2) $thredded-small-spacing;
+  }
+}
+
+%thredded--embed-16-by-9 {
+  display: block;
+  position: relative;
+  // 16 by 9
+  padding-bottom: 56.25%;
+  // Account for the video player chrome
+  padding-top: 35px;
+  height: 0;
+  overflow: hidden;
+  > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,6 @@
+<% if user.admin? %>
+  <a href="<%#= staff_path %>" class="label" style="background-color: #dd7921; color: white;">Administrator</a>
+<% end %>
+<% if user.mod? %>
+  <a href="<%#= staff_path %>" class="label" style="background-color: #dd212d; color: white;">Moderator</a>
+<% end %>

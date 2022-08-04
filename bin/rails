@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby.exe
+
+APP_PATH = File.expand_path('../config/application', __dir__)
+require_relative '../config/boot'
+
+# Add some shortcuts for "rails server":
+#
+#     rails bgm       # public website
+#     rails api       # API
+
+if %w[bgm api].include? ARGV[0]
+  ENV['BGM_ROLE'] = ARGV[0]
+  ARGV[0] = 'server'
+end
+
+case ENV['OCN_ROLE']
+when 'bgm'
+  port = 3000
+  pid = 'tmp/pids/octc.pid'
+when 'api'
+  port = 3010
+  pid = 'tmp/pids/api.pid'
+else
+  port = pid = nil
+end
+
+ARGV << "--port=#{port}" if port && ARGV.none?{|arg| arg =~ /^(-p|--port)/ }
+ARGV << "--pid=#{pid}" if pid && ARGV.none?{|arg| arg =~ /^(-P|--pid)/ }
+
+require 'rails/commands'

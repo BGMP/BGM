@@ -1,0 +1,36 @@
+<% content_for :thredded_page_title, t('thredded.messageboard_group.create') %>
+<% content_for :thredded_page_id, 'thredded--messageboard-groups-new' %>
+<% content_for :thredded_breadcrumbs do %>
+  <!--
+  <ul class="thredded--navigation-breadcrumbs">
+    <li class="thredded--navigation-breadcrumbs--item-no-link">
+      <%= t('thredded.messageboard_group.create') %>
+    </li>
+  </ul>
+  -->
+<% end %>
+
+<h4>New category <small>Create a new subforum category.</small></h4>
+<hr/>
+
+<%= thredded_page do %>
+  <%= form_for @messageboard_group do |f| %>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.text_field :name, required: true, :placeholder => 'Name', :class => 'form-control thredded-form-field' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-toolbar">
+      <div class="actions">
+        <%= f.submit t('thredded.messageboard_group.create_btn'),
+                     class: 'btn btn-primary',
+                     'data-disable-with' => t('thredded.messageboard_group.form.create_btn_submitting') %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

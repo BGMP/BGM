@@ -1,0 +1,10 @@
+<%= link_to post.edit_path,
+            "data-toggle": "tooltip",
+            "data-placement": "top",
+            title: t('thredded.posts.edit'),
+            class: 'btn btn-sm post-action-button',
+            style: 'background-color: #212121; color: #beb8bc;',
+            rel: 'nofollow' do
+%>
+  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+<% end %>

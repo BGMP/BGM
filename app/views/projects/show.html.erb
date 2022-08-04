@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3><%= @project.name %></h3>
+    </div>
+    <div class="ml-auto mb-1 mr-3">
+      <a href="<%= repository_path @project.slug %>" class="btn btn-primary btn-sm">Revisions</a>
+      <% if user_signed_in? and current_user.admin? %>
+        <a href="<%= projects_path %>" class="btn btn-primary btn-sm">Back</a>
+        <a href="<%= edit_project_path(@project) %>" class="btn btn-primary btn-sm">Edit</a>
+        <a href="<%= project_path(@project) %>" class="btn btn-primary btn-sm" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Delete</a>
+      <% end %>
+    </div>
+  </div>
+
+  <hr class="mt-1"/>
+
+  <%= render_pretty(@project.readme) %>
+
+  <br/>
+
+</div>

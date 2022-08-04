@@ -1,0 +1,64 @@
+<h4>New subforum <small>Create a new subforum.</small></h4>
+<hr/>
+
+<%= form_for messageboard do |f| %>
+    <%= render 'thredded/shared/field_errors', messages: f.object.errors[:name] %>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.text_field :name,
+                             required: true,
+                             :placeholder => t('thredded.messageboard.form.title_label'),
+                             :class => 'form-control thredded-form-field'
+            %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.text_field :description,
+                             :placeholder => t('thredded.messageboard.form.description_label'),
+                             :class => 'form-control thredded-form-field'
+            %>
+          </div>
+        </div>
+
+        <%= f.collection_select :messageboard_group_id,
+                                Thredded::MessageboardGroup.all,
+                                :id,
+                                :name, {
+                                }, {
+                                    :class => 'form-control',
+                                    :style => 'border-color: gray; color: #bdbdbd; background-color: #212121; display: inline-block; width: 50%; cursor: pointer;'
+                                }
+        %>
+      </div>
+    </div>
+
+    <div class="thredded-checkbox-text thredded-checkbox-isolate">
+      <%= f.label :locked do %>
+        <%= f.check_box :locked %> <%= t 'thredded.messageboard.form.locked_label' %>
+      <% end %>
+    </div>
+
+    <div class="btn-group" role="group" aria-label="messageboard-edit-buttons">
+      <%= f.submit messageboard.persisted? ? t('thredded.messageboard.update') : t('thredded.messageboard.create_btn'),
+                   class: 'btn btn-primary',
+                   'data-disable-with' => messageboard.persisted? ?
+                       t('thredded.messageboard.form.update_btn_submitting') :
+                       t('thredded.messageboard.form.create_btn_submitting')
+      %>
+  <% end %>
+  &nbsp;
+  <% if messageboard.persisted? and Thredded.show_messageboard_delete_button %>
+    <%= button_to t('thredded.messageboard.form.delete'),
+                  messageboard_path(messageboard),
+                  method: 'delete',
+                  class: 'btn btn-danger',
+                  form_class: 'thredded--form',
+                  data: {confirm: t('thredded.messageboard.form.delete_confirm', messageboard_name: messageboard.name)}
+    %>
+  <% end %>
+</div>

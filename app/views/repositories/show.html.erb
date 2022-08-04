@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="page-header">
+    <h3>Revisions <small>Latest commits at my projects</small></h3>
+    <hr class="mt-1"/>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="nav nav-tabs">
+        <% Project.all.each do |p| %>
+          <% next unless p.repository.open? %>
+
+          <li class="nav-item">
+            <a class="nav-link <%=  (p.repository.eql? @repository) ? 'active' : ''  %>" href="<%=  repository_path(p.repository)  %>"><%=  p.name  %></a>
+          </li>
+        <%  end %>
+      </ul>
+
+      <br/>
+      <div class="row">
+        <div class="col">
+          <p><%= @repository.description %></p>
+        </div>
+        <div class="ml-auto mb-1 mr-3">
+          <a href="<%= project_path @repository.title %>" class="btn btn-primary btn-sm">Project Page</a>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th width="5%">#</th>
+            <th width="10%">Revision</th>
+            <th width="10%">Author</th>
+            <th width="58%">Description</th>
+            <th width="17%">When</th>
+          </tr>
+          </thead>
+          <tbody>
+            <% @revs.each do |r| %>
+              <tr>
+                <td>
+                  <%= @count += 1 %>
+                </td>
+                <td>
+                  <a href="<%= commit_url(r.sha) %>" target="_blank"><%= r.sha_brief %></a>
+                </td>
+                <td>
+                  <% user_stuffs = revision_author(r.author_name) %>
+                  <% if user_stuffs.nil? %>
+                    <a href="<%= provider_user_url(r.author_name) %>" target="_blank"><%= r.author_name %></a>
+                <% else %>
+                    <a href="<%= user_path(user_stuffs.last) %>" style="color: <%= user_stuffs.first %>"><%= user_stuffs.last == '' ? r.author_name : user_stuffs.last %></a>
+                  <% end %>
+                </td>
+                <td>
+                  <%= r.message %>
+                </td>
+                <td>
+                  <%= time_ago_in_words(r.date) %> ago
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <%= paginate @revs %>
+    </div>
+  </div>
+</div>

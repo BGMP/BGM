@@ -1,0 +1,177 @@
+.thredded--messageboards-group {
+  box-sizing: border-box;
+  &--title {
+    font-size: 1em;
+    margin: 0.75em 0 0.625em 0;
+  }
+}
+
+.thredded--messageboard {
+  @extend %thredded--link;
+  box-sizing: border-box;
+  display: block;
+  margin-bottom: -$thredded-messageboards-grid-item-border-width;
+  padding: $thredded-base-spacing;
+  position: relative;
+
+  &, &:focus, &:hover, &:active {
+    border: $thredded-messageboards-grid-item-border-width solid $thredded-messageboards-grid-item-border-color;
+  }
+
+  &:hover {
+    background-color: rgba($thredded-brand, 0.035);
+  }
+
+  &:active {
+    box-shadow: $thredded-form-box-shadow;
+  }
+}
+
+.thredded--messageboard--title {
+  @extend %thredded--heading;
+  font-size: $thredded-messageboard-title-font-size;
+  display: inline-block;
+  float: left;
+  line-height: 1.2;
+  vertical-align: baseline;
+}
+
+.thredded--messageboard--title,
+.thredded--messageboard--meta,
+.thredded--messageboard--description {
+  margin-bottom: $thredded-small-spacing / 2;
+}
+
+.thredded--messageboard--description,
+.thredded--messageboard--meta,
+.thredded--messageboard--byline {
+  font-size: 0.875em;
+}
+
+.thredded--messageboard--meta--icon {
+  @extend %thredded--icon;
+  opacity: 0.8;
+  width: 1rem;
+  height: 1rem;
+}
+
+.thredded--messageboard--meta--counts {
+  @extend %thredded--heading;
+  color: $thredded-secondary-text-color;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: normal;
+  margin-bottom: 0;
+  vertical-align: baseline;
+}
+
+.thredded--messageboard--unread-followed-topics-count {
+  @extend %thredded--nav-tabs--item--badge;
+  align-self: baseline;
+  line-height: inherit;
+  display: flex;
+}
+
+.thredded--messageboard--unread-followed-icon {
+  fill: currentColor;
+  width: 1rem;
+  height: 1rem;
+}
+
+.thredded--messageboard--description {
+  @extend %thredded--paragraph;
+  clear: both;
+  color: $thredded-text-color;
+  &:empty {
+    margin: 0;
+  }
+}
+
+.thredded--messageboard--byline {
+  @extend %thredded--paragraph;
+  color: $thredded-secondary-text-color;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.thredded--messageboard--delete {
+  background-color: $thredded-alert-danger-color;
+}
+
+.thredded--messageboards--actions {
+  @extend %thredded--buttons-list;
+  @media print {
+    display: none;
+  }
+}
+
+@supports (flex-wrap: wrap) {
+  .thredded--messageboard {
+    display: flex;
+    flex-direction: column;
+    &--header {
+      display: flex;
+      flex-wrap: wrap;
+      > .thredded--flex-spacer {
+        margin-right: $thredded-small-spacing;
+      }
+    }
+    &--meta {
+      text-align: right;
+    }
+    &--byline,
+    &--description {
+      margin-top: auto;
+    }
+  }
+
+  @if $thredded-messageboards-grid {
+    @include thredded-media-desktop-and-up {
+      $gutter-x: $thredded-messageboards-grid-item-gutter-x;
+      $gutter-y: $thredded-messageboards-grid-item-gutter-y;
+      $border-width: $thredded-messageboards-grid-item-border-width;
+      // Collapse borders when there is no gutter
+      $margin-x: $gutter-x / 2 - if($gutter-x == 0, $border-width / 2, 0);
+      $margin-y: $gutter-y / 2 - if($gutter-y == 0, $border-width / 2, 0);
+
+      %thredded--messageboards-cell-flex {
+        flex-basis: $thredded-messageboards-grid-item-flex-basis;
+        flex-grow: 1;
+        margin-left: $margin-x;
+        margin-right: $margin-x;
+      }
+
+      .thredded--messageboards-group {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: (-$margin-y) (-$margin-x);
+
+        // Size incomplete last rows with up to two missing items.
+        &::after, &::before {
+          @extend %thredded--messageboards-cell-flex;
+          box-sizing: border-box;
+          content: "";
+          padding: 0 $thredded-messageboards-grid-item-padding-x;
+        }
+
+        &::before {
+          order: 1
+        }
+      }
+
+      // A helper class for sizing incomplete rows with more than two missing items.
+      .thredded--grid-sizer {
+        @extend %thredded--messageboards-cell-flex;
+      }
+
+      .thredded--messageboard {
+        @extend %thredded--messageboards-cell-flex;
+        margin-top: $margin-y;
+        margin-bottom: $margin-y;
+        padding: $thredded-messageboards-grid-item-padding-y $thredded-messageboards-grid-item-padding-x;
+      }
+    }
+  }
+}

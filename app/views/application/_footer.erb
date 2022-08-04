@@ -1,0 +1,67 @@
+<div class="container">
+  <hr/>
+  <section>
+    <div class="row">
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6">
+        <ul class="list-unstyled">
+          <li class="heading">
+            Policies
+          </li>
+          <li>
+            <a href="<%= rules_path %>">Rules</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6">
+        <ul class="list-unstyled">
+          <li class="heading">
+            Organization
+          </li>
+          <li>
+            <a href="<%= repository_path(web_repo_or_first) %>">Development Logs</a>
+          </li>
+          <li>
+            <a href="<%= ORG::GIT_ISSUES %>" target="_blank">Report a Bug</a>
+          </li>
+          <li>
+            <!--
+            <a href="#" target="_blank"><i class="fa fa-heart" aria-hidden="true"></i> Sponsor</a>
+            -->
+          </li>
+        </ul>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6">
+        <ul class="list-unstyled follow-us">
+          <li class="heading">
+            Trademark
+          </li>
+          <li>
+            <a href="<%= trademark_path %>">Assets</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6">
+        <ul class="list-unstyled follow-us">
+          <li class="heading">
+            Socials
+          </li>
+          <li>
+            <a href="https://discord.gg/73BghbRw67" target="_blank">
+              <%= image_tag("discord_logo_color.svg") %> Discord
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/BGMP/BGM" target="_blank">
+              <%= image_tag("github_logo.png") %> GitHub
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
+        <div class="copy">
+          <p>&copy; 2018-2022 <%= ORG::NAME %></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

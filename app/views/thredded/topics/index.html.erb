@@ -1,0 +1,74 @@
+<% content_for :thredded_page_title, messageboard.name %>
+<% content_for :thredded_page_id, 'thredded--topics-index' %>
+<% content_for :thredded_breadcrumbs, render('thredded/shared/breadcrumbs') %>
+
+<div class="container">
+  <div class="row">
+    <h4><%= messageboard.name %> <small><%= messageboard.group.name %></small></h4>
+    <%= render 'thredded/messageboards/messageboard_actions', messageboard: messageboard %>
+  </div>
+
+  <div class="row">
+    <div><%= messageboard.description %></div>
+  </div>
+
+  <div class="row">
+    <%= render 'thredded/messageboards/messageboard_actions_mobile', messageboard: messageboard %>
+  </div>
+</div>
+
+<hr/>
+
+
+<% if @topics.empty? %>
+  <h5 align="center">No hay nada aquí :(</h5>
+<% else %>
+
+  <%= paginate @topics %>
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th width="60%">Title</th>
+        <th width="25%">Last post</th>
+        <th width="10%"><div align="center">Posts</div></th>
+      </tr>
+      </thead>
+      <tbody>
+        <%= thredded_page do %>
+          <%= content_tag :section, 'data-thredded-topic-posts-per-page' => Thredded.posts_per_page do %>
+            <%= render partial: 'thredded/topics/topic',
+                       collection: @topics,
+                       locals: {
+                           sticky_topics_divider: true,
+                           topics: @topics
+                       } %>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+
+<% if user_signed_in? %>
+  <p>
+    <a class="btn btn-sm btn-primary" data-toggle="collapse" href="#new-topic-collapsible" role="button" aria-expanded="false" aria-controls="new-topic-collapsible">
+      New thread
+    </a>
+  </p>
+  <div class="collapse" id="new-topic-collapsible">
+    <hr/>
+    <%= content_tag :section,
+                    'data-thredded-topics' => true,
+                    'data-thredded-topic-posts-per-page' => Thredded.posts_per_page do
+    %>
+      <%= render 'thredded/topics/form',
+                 topic: @new_topic,
+                 placeholder: t('thredded.topics.form.title_placeholder_start') if @new_topic
+      %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= paginate @topics %>

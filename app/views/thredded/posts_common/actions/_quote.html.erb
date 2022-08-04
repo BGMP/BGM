@@ -1,0 +1,7 @@
+<%= link_to url_for(post.quote_url_params),
+            'data-thredded-quote-post' => post.quote_path,
+            class: "btn btn-sm btn-primary post-action-button",
+            rel: 'nofollow' do
+%>
+<i class="fa fa-reply" aria-hidden="true"></i> <%= t('thredded.posts.quote_btn') %>
+<% end %>

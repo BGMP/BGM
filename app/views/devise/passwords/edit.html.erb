@@ -1,0 +1,41 @@
+<div class="container">
+
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <h3>Change password</h3>
+  <hr/>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <div class="input-group">
+            <% if @minimum_password_length %>
+              <%= f.password_field :password, autofocus: true, :placeholder => "New password (#{@minimum_password_length} characters minimum)", autocomplete: "new-password", :class => 'form-control devise-form-field' %>
+            <% else %>
+              <%= f.password_field :password, autofocus: true, :placeholder => 'New password', autocomplete: "new-password", :class => 'form-control devise-form-field' %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.password_field :password_confirmation, :placeholder => 'Confirm new password', autocomplete: "new-password", :class => 'form-control devise-form-field' %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Change password", :class => 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+  <br/>
+
+  <%= render "devise/shared/links" %>
+
+</div>

@@ -1,0 +1,7 @@
+<%# current = current_page_preferences? %>
+
+<%= link_to "Notifications",
+            thredded ? edit_preferences_path(messageboard) : "#{forums_path}#{edit_preferences_path(messageboard)}",
+            rel: 'nofollow',
+            :class => 'dropdown-item'
+%>

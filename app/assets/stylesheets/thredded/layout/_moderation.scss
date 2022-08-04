@@ -1,0 +1,98 @@
+.thredded--moderation-navigation {
+  position: relative;
+  @include thredded-media-desktop-and-up {
+    margin-bottom: $thredded-base-spacing;
+  }
+}
+
+.thredded--moderation-navigation--items {
+  @extend %thredded--nav-tabs;
+  margin-bottom: $thredded-small-spacing;
+}
+
+.thredded--moderation-navigation--item {
+  @extend %thredded--nav-tabs--item;
+}
+
+.thredded--pending-moderation .thredded--moderation-navigation--pending,
+.thredded--moderation-history .thredded--moderation-navigation--history,
+.thredded--moderation-users .thredded--moderation-navigation--users,
+.thredded--moderation-user .thredded--moderation-navigation--users,
+.thredded--moderation-activity .thredded--moderation-navigation--activity {
+  @extend %thredded--nav-tabs--item-current;
+}
+
+.thredded--post-moderation-actions {
+  @extend %thredded--buttons-list;
+}
+
+.thredded--moderated-notice {
+  margin-bottom: $thredded-base-spacing;
+  padding: $thredded-small-spacing $thredded-base-spacing;
+  background: $thredded-light-gray;
+}
+
+.thredded--post-moderation,
+.thredded--post-moderation-record {
+  .thredded--post--user a {
+    color: $thredded-action-color;
+  }
+}
+
+.thredded--post-moderation-record {
+  .thredded--post {
+    margin-bottom: 0;
+    margin-left: 1rem;
+    @include thredded-media-content-breakout {
+      margin-left: 4rem;
+    }
+  }
+  &--moderation-state-notice {
+    margin-bottom: 1rem;
+    a {
+      @extend %thredded--link;
+    }
+    .thredded--post-moderation-record-approved & {
+      color: $thredded-alert-success-color;
+    }
+    .thredded--post-moderation-record-blocked & {
+      color: $thredded-alert-danger-color;
+    }
+  }
+  &--content-changed-notice {
+    font-style: italic;
+    a {
+      @extend %thredded--link;
+    }
+  }
+}
+
+.thredded--post-moderation-record + .thredded--post-moderation-record {
+  margin-top: $thredded-large-spacing;
+}
+
+.thredded--moderation--users-table {
+  width: 100%;
+  a {
+    display: block;
+  }
+}
+
+.thredded--moderation--user--title {
+  margin: 0;
+}
+
+.thredded--moderation--user--info {
+  margin-left: 2rem;
+}
+
+.thredded--user--moderation-actions {
+  text-align: left;
+  margin-left: 4rem;
+  .button_to {
+    display: inline-block;
+  }
+  .button_to + .button_to {
+    margin-left: $thredded-small-spacing;
+  }
+}

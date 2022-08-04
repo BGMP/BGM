@@ -1,0 +1,49 @@
+<div class="container">
+  <h3>Projects <small>Stuffs I work on!</small></h3>
+  <hr/>
+
+  <div class="projects-index">
+    <% if @projects.any? %>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th width="25%">Name</th>
+            <th width="75%">Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @projects.each do |p| %>
+            <tr>
+              <td>
+                <div class="row">
+                  <div class="col-xl-9 col-lg-8 col-md-7">
+                    <%= link_to p.name, p %>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <%= render_pretty(p.description) %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+      <% if user_signed_in? and current_user.admin? %>
+        <%= link_to 'New Project', new_project_path, :class =>  'btn btn-sm btn-primary' %>
+      <% end %>
+    <% else %>
+      <div align="center">
+        <h5>No projects to display</h5>
+        <% if user_signed_in? and current_user.admin? %>
+          <%= link_to 'New Project', new_project_path, :class =>  'btn btn-sm btn-primary' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <br/>
+
+  <%= paginate @projects %>
+</div>

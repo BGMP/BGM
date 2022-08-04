@@ -1,0 +1,26 @@
+<ul class="navbar-nav nav-pills nav-stacked sidebar-nav-pills">
+  <li><h4>What's New?</h4></li>
+  <li class="sidebar-item <%= request.path.eql?("#{forums_path}/") ? 'sidebar-active-item' : 'sidebar-inactive-item' %>">
+    <%= link_to "Recents", forums_path %>
+  </li>
+
+  <% Thredded::MessageboardGroup.all.each do |group| %>
+    <% next if group.messageboards.empty? %>
+
+    <% if group.name.present? and Thredded.show_messageboard_group_page %>
+      <li><h4><%= group.name %></h4></li>
+      <% group.messageboards.each do |messageboard| %>
+        <% @category_path = "#{forums_path}/#{messageboard.slug}" %>
+        <li class="sidebar-item <%= request.path.include?(@category_path) ? 'sidebar-active-item' : 'sidebar-inactive-item' %>">
+
+          <a href="<%= @category_path %>"><%= messageboard.name %>
+            <% if messageboard.locked? %>
+              <i style="margin-top: 3px;" data-toggle="tooltip" data-placement="top" title="Locked" class="fa fa-lock pull-right" aria-hidden="true"></i>
+            <% end %>
+          </a>
+        </li>
+      <% end %>
+      <div class="sidebar-group-flash"></div>
+    <% end %>
+  <% end %>
+</ul>

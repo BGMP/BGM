@@ -1,0 +1,11 @@
+.thredded--empty {
+  border: $thredded-base-border;
+  padding: $thredded-base-spacing;
+  text-align: center;
+}
+
+.thredded--empty--title {
+  @extend %thredded--heading;
+  font-size: 1.5rem; // 24px
+  margin-bottom: $thredded-base-spacing;
+}

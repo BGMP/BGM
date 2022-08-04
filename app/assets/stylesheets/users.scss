@@ -1,0 +1,157 @@
+.profile-page {
+  @media (min-width: 900px) and (max-width: 1000px) {
+    .hidden-sm {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .hidden-xs {
+      display: none !important;
+    }
+  }
+}
+
+.profile-stuffs {
+  h5 {
+    font-size: 17px;
+    margin-top: 10px !important;
+    margin-bottom: 10px;
+  }
+
+  pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #cccccc;
+    word-break: break-all;
+    word-wrap: break-word;
+    border-radius: 4px;
+    background-color: #212121;
+    border-color: #212121;
+  }
+
+  blockquote {
+    color: #cccccc;
+    margin-left: 15px;
+  }
+}
+
+.profile-space {
+  margin-top: 15px;
+}
+
+.username {
+  font-size: 35px;
+  font-weight: bold;
+
+  .verified-icon {
+    color: #2ECC71;
+    font-size: 31px;
+  }
+
+  .verified-name {
+    text-decoration: none;
+    color: #beb8bc;
+  }
+}
+
+// Main profile player head
+.big-avatar {
+  width: 130px;
+  height: 130px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: black;
+  margin-bottom: 15px;
+}
+
+// Small player heads present throughout the profile
+.avatar {
+  margin-bottom: 3px;
+  margin-right: 3px;
+  display: inline-block;
+  box-sizing: border-box;
+  background-color: black;
+}
+
+.account-not-linked-card {
+  margin-top: 53px;
+}
+
+.heads {
+  margin-bottom: 15px;
+
+  .heads-footer {
+    font-size: 16px;
+    font-weight: bold;
+    color: #999;
+  }
+
+  .heads-stat-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #bdbdbd;
+  }
+}
+
+.heads > div {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: whitesmoke;
+  background-color: #212121;
+  border-color: #646464;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+  border-color: #646464;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.nav-item {
+  a {
+    color: #bdbdbd;
+  }
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #646464;
+}
+
+.stat-label {
+  color: #646464;
+}
+
+// Staff group badges
+.label, .badge {
+  text-shadow: none;
+}
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  margin-bottom: 15px;
+}
+
+a.label:focus, a.label:hover {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.span9 {
+  margin-bottom: 5px;
+}

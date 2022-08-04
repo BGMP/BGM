@@ -1,0 +1,133 @@
+@import "peek/peek";
+@import "peek/views/performance_bar";
+@import "navigation";
+@import "footer";
+@import "devise";
+@import "kaminari";
+@import "forums";
+@import "users";
+@import "thredded";
+@import "projects";
+
+body {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #333333;
+  color: #beb8bc;
+
+  padding: 0;
+  margin: 0;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  color: #707070;
+  background-color: #707070;
+}
+
+small {
+  font-size: 70%;
+}
+
+.tooltip-inner {
+  font-size: 14px;
+  max-width: none;
+  white-space: nowrap;
+  opacity: 0.9;
+}
+
+.btn-primary {
+  color: #beb8bc;
+  background-color: #212121;
+  border: 1px solid gray;
+}
+
+.btn-primary:hover {
+  color: #dee2e6;
+  background-color: #212121;
+  border: 1px solid gray;
+}
+
+.btn-primary:focus {
+  color: #dee2e6 !important;
+  background-color: #212121 !important;
+  border: 1px solid gray !important;
+}
+
+.alert {
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+
+.splash-logo {
+  border-radius: 3px;
+  outline: none;
+}
+
+.project-banner {
+  height: 200px;
+  margin-bottom: 0 !important;
+  background-position: center;
+  -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,0.1),inset 0 -3px 7px rgba(0, 0, 0, 0.2);
+}
+.project-banner {
+  h1 {
+    font-weight: bold;
+    line-height: 1;
+  }
+}
+
+.project-banner-link {
+  a {
+    color: #beb8bc;
+  }
+
+  a:hover {
+    color: whitesmoke;
+    text-decoration: none;
+  }
+}
+
+.project-banner-background {
+  background-image:
+          linear-gradient(
+                          rgba(0.0, 0.0, 0.0, 0.5),
+                          rgba(0.0, 0.0, 0.0, 0.5)
+          ),
+          image_url("wallpaper.png");
+}
+
+
+@media screen and (min-width: 720px) {
+  .project-banner {
+    padding-top: 45px;
+    padding-left: 60px;
+  }
+
+  .project-title {
+    letter-spacing: -3px;
+    font-size: 80px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .project-banner {
+    padding-top: 45px;
+    padding-left: 25px;
+  }
+
+  .project-title {
+    letter-spacing: -3px;
+    font-size: 70px;
+  }
+}
+
+.sub-display-3 {
+  font-size: 25px;
+  text-shadow: 0.1em 0.1em 0.3em black;
+  letter-spacing: -1px;
+  padding-left: 7px;
+}

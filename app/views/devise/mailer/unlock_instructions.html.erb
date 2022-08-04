@@ -1,0 +1,7 @@
+<p>Hello, <%= @resource.email %>!</p>
+
+<p>Your account has been blocked due to too many login attempts.</p>
+
+<p>Click the link below to unlock it:</p>
+
+<p><%= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token) %></p>

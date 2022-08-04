@@ -1,0 +1,111 @@
+.thredded--topic-header {
+  margin-bottom: $thredded-small-spacing;
+  margin-top: 0;
+  @include thredded-media-desktop-and-up {
+    margin-bottom: $thredded-base-spacing + $thredded-small-spacing;
+    margin-top: $thredded-small-spacing;
+    @include thredded--clearfix;
+  }
+}
+
+.thredded--topic-header--title {
+  @extend %thredded--heading;
+  font-size: $thredded-topic-header-font-size;
+  line-height: 1.2;
+  margin-bottom: $thredded-small-spacing / 2;
+  @include thredded-media-tablet-and-up {
+    font-size: $thredded-topic-header-font-size-tablet-and-up;
+  }
+}
+
+.thredded--topic-header--participants {
+  color: $thredded-secondary-text-color;
+
+  &--participant {
+    > a {
+      @extend %thredded--link;
+      font-size: $thredded-font-size-small;
+    }
+    &::before {
+      content: '\2022\00A0'; // • and a non-breaking space
+    }
+  }
+}
+
+.thredded--topic-header--started-by {
+  font-size: $thredded-font-size-small;
+  color: $thredded-secondary-text-color;
+  font-style: normal;
+  a {
+    @extend %thredded--link;
+  }
+}
+
+.thredded--topic-header--edit-topic {
+  @extend %thredded--link;
+  font-size: $thredded-font-size-small;
+  margin-left: 0.4rem;
+  @media print {
+    display: none;
+  }
+}
+
+.thredded--topic-header--follow-info {
+  color: $thredded-secondary-text-color;
+  font-size: $thredded-font-size-small;
+  font-style: normal;
+  @include thredded-media-desktop-and-up {
+    float: right;
+    text-align: right;
+    max-width: 25rem;
+    position: relative;
+    form {
+      // Do not introduce extra margin
+      position: absolute;
+      right: 0;
+      vertical-align: text-top;
+      &.thredded--topic-header--follow-info--unfollow {
+        top: 1.625em;  // required for Safari and Firefox
+      }
+    }
+    &--reason {
+      display: block;
+      vertical-align: text-top;
+    }
+  }
+  p {
+    margin: 0;
+  }
+  &--reason {
+    display: inline-block;
+  }
+  form {
+    display: inline-block;
+    input[type=submit], button {
+      background:none;
+      border:none;
+      padding:0;
+      font: inherit;
+      cursor: pointer;
+      @extend %thredded--link;
+    }
+    @media print {
+      display: none;
+    }
+  }
+}
+
+
+.thredded--topic-header--follow-icon {
+  @extend %thredded--following-icon;
+  vertical-align: middle;
+}
+
+.thredded--topic-followers {
+  font-size: $thredded-font-size-small;
+  color: $thredded-secondary-text-color;
+}
+
+.thredded--svg-definitions {
+  display: none;
+}

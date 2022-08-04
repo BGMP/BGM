@@ -1,0 +1,40 @@
+<div class="splash">
+  <h1><strong>BGM's Website <small><code>bgm.cl</code></small></strong></h1>
+  <hr class="mt-1"/>
+
+  <div class="row">
+    <div class="col">
+      <p>
+        Hey! I'm BGM or B, a Software Developer from Chile! This is my personal website, which also happens to be
+        a forum!.
+      </p>
+
+      <p>
+        This site is a bit of an experiment. I had always wondered whether I wanted to create a portfolio website for my
+        projects and articles, but I didn't want it to be static, so I decided to create a website
+        where I can keep everything together, and at the same time allow anybody in to share their thoughts at!
+      </p>
+    </div>
+  </div>
+
+  <h3>Personal Projects</h3>
+  <hr class="mt-1"/>
+
+  <% @projects.each do |p| %>
+    <div class="project-banner-link">
+      <a href="<%= project_path(p) %>">
+      <div class="jumbotron project-banner project-banner-background">
+        <h1 class="project-title"><%= p.name %></h1>
+        <div class="sub-display-3">
+          <p><%= p.description %></p>
+        </div>
+      </div>
+      </a>
+    </div>
+    <br/>
+  <% end %>
+
+  <%= paginate @projects %>
+</div>
+
+

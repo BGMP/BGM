@@ -1,0 +1,15 @@
+<%= view_hooks.post_form.preview_area.render self, form: form, preview_url: preview_url do %>
+  <noscript>
+    <button type="submit"
+            formtarget="_blank" formaction="<%= preview_url %>">
+      <%= t 'thredded.form.preview' %>
+    </button>
+  </noscript>
+
+  <div style="word-wrap: break-word" class="table-responsive"
+       data-thredded-preview-area data-thredded-preview-url="<%= preview_url %>">
+    <h5 class="post-reply-title"><%= t 'thredded.form.preview' %></h5>
+    <div class="thredded--preview-area--post thredded--post--content" data-thredded-preview-area-post></div>
+  </div>
+  <hr/>
+<% end %>

@@ -1,0 +1,11 @@
+<!-- Text area box -->
+<%= render 'thredded/posts_common/form/content_field',
+           form: form,
+           content_label: content_label,
+           :reply_box => (defined? reply_box) ? reply_box : true
+%>
+<!-- Preview box -->
+<%= render 'thredded/posts_common/form/preview_area',
+           form: form,
+           preview_url: preview_url
+%>

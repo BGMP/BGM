@@ -1,0 +1,73 @@
+%thredded--button {
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  background: $thredded-button-background;
+  border-radius: $thredded-button-border-radius;
+  border: none;
+  color: $thredded-button-color;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $thredded-button-font-family;
+  font-size: $thredded-button-font-size;
+  font-weight: $thredded-button-font-weight;
+  line-height: $thredded-button-line-height;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    background-color: $thredded-button-hover-background;
+    color: $thredded-button-hover-color;
+    text-decoration: none;
+  }
+
+  &:focus {
+    box-shadow: 0 0 3px $thredded-button-background;
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:hover {
+      background: $thredded-button-background;
+    }
+  }
+}
+
+.thredded--button-light {
+  background-color: $thredded-button-light-background;
+  color: $thredded-button-light-color;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $thredded-button-light-hover-background;
+    color: $thredded-button-light-hover-color;
+  }
+}
+
+.thredded--button-wide {
+  display: block;
+  text-align: center;
+}
+
+%thredded--buttons-list {
+  text-align: center;
+  a, .button_to {
+    display: block;
+    margin-top: $thredded-small-spacing;
+  }
+  @include thredded-media-tablet-and-up {
+    a, .button_to {
+      display: inline-block;
+    }
+    a + a, .button_to + .button_to {
+      margin-left: $thredded-small-spacing;
+    }
+  }
+}

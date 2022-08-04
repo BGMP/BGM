@@ -1,0 +1,85 @@
+//
+// Thredded Overrides
+//
+
+.thredded-form-field {
+  background-color: #212121;
+  border-color: #212121;
+  color: #bdbdbd;
+}
+
+.thredded-form-field:focus {
+  background-color: #212121;
+  border-color: #212121;
+  color: #bdbdbd;
+}
+
+.thredded-checkbox-text {
+  color: #beb8bc;
+}
+
+.thredded-checkbox-isolate {
+  margin-top: 10px;
+}
+
+.thredded-text-pleasant {
+  color: #bdbdbd;
+}
+
+ul.thredded--textcomplete-dropdown {
+  background: inherit;
+  cursor: pointer;
+  box-shadow: 0.1em 0.1em 0.2em black;
+}
+
+ul.thredded--textcomplete-dropdown {
+
+  background: #333333;
+  list-style: none;
+  margin: 0;
+  padding: 2px;
+  border-radius: 2px;
+
+  li.textcomplete-item {
+    a {
+      color: #beb8bc;
+    }
+
+    &.active {
+      background: #212121;
+      border-radius: 2px;
+      a {
+        color: white;
+      }
+    }
+
+    padding: 6px;
+  }
+
+}
+
+.thredded--textcomplete-user-result {
+  &__avatar {
+    width: 2rem;
+    min-height: 2rem;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__name {
+    display: inline-block;
+    margin-left: 0.6rem
+  }
+
+  &__display_name {
+    display: inline-block;
+    margin-left: 0.4rem;
+
+    color: #beb8bc;
+
+    .textcomplete-item.active & {
+      color: white;
+    }
+  }
+}

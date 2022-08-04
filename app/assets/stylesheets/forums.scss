@@ -1,0 +1,150 @@
+// Forums yield
+thead {
+  color: #bdbdbd;
+}
+
+tbody {
+  color: #beb8bc;
+}
+
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table-bordered td,
+.table-bordered th,
+.table thead > tr > th {
+  border: 1px solid #474747;
+}
+
+// Sidebar
+.sidebar-nav-pills > ul > li > a,
+.sidebar-nav-pills > li > a {
+  position: relative;
+  display: block;
+  padding: 3px 10px;
+}
+
+.sidebar-nav-pills h4 {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding: 8px 0;
+}
+
+.sidebar-group-flash {
+  margin-bottom: 10px;
+}
+
+.sidebar-item > a {
+  text-decoration: none;
+  color: #beb8bc;
+}
+
+.sidebar-active-item {
+  background-color: #212121;
+  border-radius: 5px;
+}
+
+// Posts & Topics
+
+// Edit/Delete Topic, Follow/Unfollow buttons
+.topic-toolbar {
+  padding: 0;
+  margin-top: 10px;
+}
+
+.post-comment {
+  margin-top: 3px;
+  margin-bottom: 11px;
+  font-size: 16px;
+}
+
+.profile-name {
+  color: #bdbdbd;
+  font-size: 35px;
+  margin-bottom: 5px;
+}
+
+// Used within posts & topics
+.post-head {
+  a {
+    text-decoration: none;
+  }
+}
+
+// Used at the front page of subforums, as for the last poster, OP, etc.
+.post-head-preview {
+  a {
+    text-decoration: none;
+  }
+  img {
+    width: 23px;
+    height: 23px;
+    border-radius: 3px;
+    background-color: black;
+  }
+}
+
+.started-by {
+  font-size: 17px;
+}
+
+.latest-post {
+  font-size: 16px;
+}
+
+// Used in conjunction with .post-head-preview, to indicate the name of who posted next to their profile picture
+.poster-preview {
+  margin-top: 3px;
+  font-size: 17px;
+}
+
+.posted-time-ago-preview {
+  margin-top: -5px;
+  font-size: 15px;
+}
+
+.posted-time-ago {
+  color: gray;
+  margin-top: -5px;
+  font-size: 15px;
+}
+
+.post-reply-title {
+  margin-bottom: 10px;
+}
+
+.post-reply-textarea, .post-reply-textarea:focus {
+  border-color: transparent;
+  color: #e5d6e1;
+  resize: none !important;
+}
+
+// Profiles & Related
+.profile-head {
+  width: 175px;
+  height: 175px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profile-head-mini {
+  width: 23px;
+  height: 23px;
+  border-radius: 3px;
+  margin-left: 5px;
+}
+
+.post-action-button {
+  font-size: 15px;
+}
+
+.latest-posts-time-ago {
+  font-size: 14px;
+}
+
+.online-users-count {
+  font-size: 14px;
+  font-weight: 500;
+}

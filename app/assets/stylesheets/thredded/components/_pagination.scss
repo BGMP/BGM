@@ -1,0 +1,35 @@
+.thredded--pagination {
+  border-top: $thredded-base-border;
+  padding-top: $thredded-base-spacing;
+  padding-bottom: $thredded-base-spacing;
+  text-align: center;
+
+  > span {
+    color: $thredded-secondary-text-color;
+    display: inline-block;
+    margin-right: $thredded-small-spacing;
+
+    > a {
+      color: $thredded-text-color;
+      display: inline-block;
+
+      &:focus,
+      &:hover {
+        color: $thredded-action-color;
+      }
+    }
+
+    &.current, > a {
+      padding: ($thredded-small-spacing / 2) $thredded-small-spacing;
+    }
+  }
+}
+
+.thredded--pagination-top > .thredded--pagination {
+  border-bottom: $thredded-base-border;
+  margin-bottom: $thredded-base-spacing;
+}
+
+.thredded--pagination-bottom > .thredded--pagination {
+  margin-top: $thredded-base-spacing;
+}

@@ -1,0 +1,58 @@
+@mixin thredded-media-mobile {
+  @media (max-width: map-get($thredded-grid-breakpoint-max-widths, mobile)) {
+    @content;
+  }
+}
+
+@mixin thredded-media-tablet-and-down {
+  @media (max-width: map-get($thredded-grid-breakpoint-max-widths, tablet)) {
+    @content;
+  }
+}
+
+@mixin thredded-media-tablet-and-up {
+  @media (min-width: map-get($thredded-grid-breakpoint-max-widths, mobile) + 0.00001rem) {
+    @content;
+  }
+}
+
+@mixin thredded-media-tablet {
+  @include thredded-media-tablet-and-up {
+    @include thredded-media-tablet-and-down {
+      @content;
+    }
+  }
+}
+
+@mixin thredded-media-desktop-and-up {
+  @media (min-width: map-get($thredded-grid-breakpoint-max-widths, tablet) + 0.00001rem) {
+    @content;
+  }
+}
+
+@mixin thredded-media-content-breakout {
+  @media (min-width: $thredded-grid-container-max-width + $thredded-content-breakout-min-width + 0.00001rem) {
+    @content;
+  }
+}
+
+@mixin thredded-media-content-no-breakout {
+  @media (max-width: $thredded-grid-container-max-width + $thredded-content-breakout-min-width) {
+    @content;
+  }
+}
+
+@mixin thredded-media-avatar-breakout {
+  @warn "thredded-media-avatar-breakout is deprecated, use thredded-media-content-breakout instead";
+  @include thredded-media-content-breakout {
+    @content;
+  }
+}
+
+@mixin thredded--clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}

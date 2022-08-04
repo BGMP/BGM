@@ -1,0 +1,76 @@
+@import "thredded/base";
+@import "thredded/components/post";
+@import "thredded/components/onebox";
+
+.thredded--email {
+  font-family: $thredded-base-font-family;
+  color: $thredded-text-color;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.5;
+
+  a {
+    @extend %thredded--link;
+  }
+  hr {
+    @extend %thredded--hr;
+  }
+}
+
+.thredded--email-post {
+  margin: 0;
+
+  &--author {
+    margin-bottom: 2px;
+  }
+
+  .thredded--post--content {
+    font-size: inherit;
+    margin: 0 0 0.75rem;
+    padding-left: 0;
+
+    .onebox-wrapper-table {
+      width: 100%;
+      td {
+        border: $thredded-base-border;
+        text-align: left;
+        padding: $thredded-small-spacing;
+        > aside.onebox {
+          margin-bottom: 0;
+          padding: 0;
+          border: 0;
+          box-shadow: none;
+        }
+      }
+    }
+
+    aside.onebox {
+      margin-bottom: $thredded-small-spacing;
+    }
+  }
+}
+
+.thredded--post--content--spoiler {
+  background-color: $thredded-spoiler-background-color;
+  padding: 16px;
+
+  &--summary {
+    border-bottom: 1px solid $thredded-dark-gray;
+  }
+
+  &--contents {
+    color: transparent !important;
+
+    * {
+      color: transparent !important;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

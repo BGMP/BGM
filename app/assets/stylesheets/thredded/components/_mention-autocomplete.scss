@@ -1,0 +1,57 @@
+ul.thredded--textcomplete-dropdown {
+  background: inherit;
+  border-color: $thredded-form-border-focus-color;
+  border-top: $thredded-base-border;
+  box-shadow: 0 1px 1px $thredded-form-border-focus-color;
+  font-family: $thredded-base-font-family;
+  font-size: $thredded-base-font-size;
+  line-height: $thredded-base-line-height;
+}
+
+ul.thredded--textcomplete-dropdown {
+
+  background: $thredded-form-background;
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+
+  li.textcomplete-item {
+    a {
+      color: $thredded-text-color;
+    }
+
+    &.active {
+      background: $thredded-button-background;
+      a {
+        color: $thredded-button-color;
+      }
+    }
+
+    padding: $thredded-small-spacing;
+  }
+
+}
+
+
+.thredded--textcomplete-user-result {
+  &__avatar {
+    width: 2rem;
+    min-height: 2rem;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &__name {
+    display: inline-block;
+    margin-left: 0.6rem
+  }
+  &__display_name {
+    display: inline-block;
+    margin-left: 0.4rem;
+
+    color: $thredded-secondary-text-color;
+    .textcomplete-item.active & {
+      color: invert($thredded-secondary-text-color);
+    }
+  }
+}

@@ -100,6 +100,12 @@ small {
           image_url("wallpaper.png");
 }
 
+.project-subtitle {
+  font-size: 25px;
+  text-shadow: 0.1em 0.1em 0.3em black;
+  letter-spacing: -1px;
+  padding-left: 7px;
+}
 
 @media screen and (min-width: 720px) {
   .project-banner {
@@ -123,11 +129,4 @@ small {
     letter-spacing: -3px;
     font-size: 70px;
   }
-}
-
-.sub-display-3 {
-  font-size: 25px;
-  text-shadow: 0.1em 0.1em 0.3em black;
-  letter-spacing: -1px;
-  padding-left: 7px;
 }

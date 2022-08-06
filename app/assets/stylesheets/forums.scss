@@ -66,13 +66,6 @@ tbody {
   margin-bottom: 5px;
 }
 
-// Used within posts & topics
-.post-head {
-  a {
-    text-decoration: none;
-  }
-}
-
 // Used at the front page of subforums, as for the last poster, OP, etc.
 .post-head-preview {
   a {
@@ -94,7 +87,6 @@ tbody {
   font-size: 16px;
 }
 
-// Used in conjunction with .post-head-preview, to indicate the name of who posted next to their profile picture
 .poster-preview {
   margin-top: 3px;
   font-size: 17px;
@@ -122,20 +114,6 @@ tbody {
 }
 
 // Profiles & Related
-.profile-head {
-  width: 175px;
-  height: 175px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.profile-head-mini {
-  width: 23px;
-  height: 23px;
-  border-radius: 3px;
-  margin-left: 5px;
-}
-
 .post-action-button {
   font-size: 15px;
 }

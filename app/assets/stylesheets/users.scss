@@ -58,50 +58,6 @@
   }
 }
 
-// Main profile player head
-.big-avatar {
-  width: 130px;
-  height: 130px;
-  cursor: pointer;
-  border-radius: 5px;
-  background-color: black;
-  margin-bottom: 15px;
-}
-
-// Small player heads present throughout the profile
-.avatar {
-  margin-bottom: 3px;
-  margin-right: 3px;
-  display: inline-block;
-  box-sizing: border-box;
-  background-color: black;
-}
-
-.account-not-linked-card {
-  margin-top: 53px;
-}
-
-.heads {
-  margin-bottom: 15px;
-
-  .heads-footer {
-    font-size: 16px;
-    font-weight: bold;
-    color: #999;
-  }
-
-  .heads-stat-number {
-    font-size: 32px;
-    font-weight: bold;
-    color: #bdbdbd;
-  }
-}
-
-.heads > div {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
   color: whitesmoke;
   background-color: #212121;

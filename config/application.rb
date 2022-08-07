@@ -37,6 +37,9 @@ module BGM
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    # Gracefully handle website exceptions such as 404, 422 & 500. All through the ErrorsController
+    config.exceptions_app = routes
+
     config.time_zone = 'Central Time (US & Canada)'
 
     config.assets.paths << Rails.root.join('app', 'assets')

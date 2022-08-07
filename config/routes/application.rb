@@ -6,12 +6,18 @@ BGM::Application.routes.draw do
 
   root :to => 'application#index', :via => 'get'
 
-  resources :profiles
   resources :projects, :param => :slug
   resources :repositories, :param => :slug, :path => :revisions
 
   get 'rules', :to => 'rules#index'
   get 'trademark', :to => 'trademark#index'
+
+  match '404', :to => 'errors#not_found', :via => :all
+  match '422', :to => 'errors#illegal', :via => :all
+  match '500', :to => 'errors#internal_error', :via => :all
+
+  # Route for testing error pages in the development environment
+  get 'error' => 'errors#illegal'
 
   devise_for :users,
              :controllers => {

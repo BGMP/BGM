@@ -24,3 +24,5 @@ Style/EndOfLine:
   EnforcedStyle: lf
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/MutableConstant:
+  Enabled: false

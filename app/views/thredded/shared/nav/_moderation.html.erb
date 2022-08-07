@@ -1,7 +1,7 @@
 <% if thredded_moderator? %>
   <hr style="margin-top: 5px; margin-bottom: 5px;"/>
   <%= link_to "Moderate #{posts_pending_moderation_count > 0 ? '(' + posts_pending_moderation_count.to_s + ')' : ''}",
-              FORUMS::PATH + pending_moderation_path,
+              pending_moderation_path,
               rel: 'nofollow',
               :class => 'dropdown-item'
   %>

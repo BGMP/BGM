@@ -16,10 +16,6 @@ module ORG
   GIT_ISSUES = 'https://github.com/BGMP/BGM/issues'
 end
 
-module FORUMS
-  PATH = Thredded::Engine.routes.find_script_name({})
-end
-
 module BGM
   class Application < Rails::Application
     class << self

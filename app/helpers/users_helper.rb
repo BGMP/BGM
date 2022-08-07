@@ -32,8 +32,8 @@ module UsersHelper
 
   def user_color(user)
     return '' if user.nil?
-    return '#dd212d' if user.mod?
+    return '#dd7921' if user.admin?
 
-    '#dd7921' if user.admin?
+    '#dd212d' if user.mod?
   end
 end

@@ -10,7 +10,8 @@ module ORG
   NAME = 'BGM'
   DESCRIPTION = "BGM's Website"
   DOMAIN = 'bgm.cl'
-  EMAIL = 'contact@bgm.cl'
+  EMAIL = 'noreply@bgm.cl'
+  SMTP = "smtp.mailgun.org"
   GITHUB = 'https://github.com/BGMP/BGM'
   GIT_REPO = 'BGM'
   GIT_ISSUES = 'https://github.com/BGMP/BGM/issues'

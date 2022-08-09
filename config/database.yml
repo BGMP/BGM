@@ -51,5 +51,5 @@ test:
 production:
   <<: *default
   database: BGM_production
-  username: bgm
+  username: <%= ENV['BGM_DATABASE_USER'] %>
   password: <%= ENV['BGM_DATABASE_PASSWORD'] %>

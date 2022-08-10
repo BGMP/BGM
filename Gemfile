@@ -33,14 +33,16 @@ gem 'tzinfo-data',                                              # Windows does n
     :platforms => [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'webpacker', '~> 5.0'                                       # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
 group :development, :test do
   gem 'byebug', :platforms => [:mri, :mingw, :x64_mingw]        # Call 'byebug' anywhere in the code to stop execution and get a debugger console
 end
 
 group :development do
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'                         # Resolve OpenSSH problems with capistrano
+  gem 'capistrano', '~> 3.14', :require => false                # Deployment
+  gem 'capistrano-bundler', '~> 2.0', :require => false         # Capistrano bundler integration
+  gem 'ed25519', '>= 1.2', '< 2.0'                              # Resolve OpenSSH problems with capistrano
+  gem 'rvm1-capistrano3', :require => false                     # Capistrano rvm integration
   gem 'web-console', '>= 4.1.0'                                 # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
 end
 

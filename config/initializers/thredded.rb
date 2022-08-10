@@ -68,7 +68,7 @@ Thredded.show_topic_followers = false
 Thredded.currently_online_enabled = true
 
 # Whether private messaging functionality is enabled.
-Thredded.private_messaging_enabled = true
+Thredded.private_messaging_enabled = false
 
 # The number of topics to display per page.
 Thredded.topics_per_page = 20

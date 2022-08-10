@@ -2,8 +2,6 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   include UsersHelper
 
-  protect_from_forgery :with => :exception
-
   def index
     @projects = Project.all
     @projects = Kaminari.paginate_array(@projects).page(params[:page]).per(3)

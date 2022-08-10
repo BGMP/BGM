@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-lock '~> 3.16.0'
+lock '~> 3.17.1'
 
 require 'capistrano/bundler'
 require 'rvm1/capistrano3'

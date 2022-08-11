@@ -23,6 +23,7 @@ namespace :app do
 
   task :restart do
     on roles(:app) do
+      execute 'cd /home/deploy/BGM/current && /home/deploy/BGM/rvm1scripts/rvm-auto.sh 2.7.3 bundle exec rake assets:precompile RAILS_ENV=production'
       execute :sudo, '/bin/systemctl restart bgm.service'
     end
   end
@@ -36,6 +37,3 @@ set :migration_role, :db
 set :migration_servers, -> { primary(fetch(:migration_role)) }
 set :migration_command, 'db:migrate'
 set :conditionally_migrate, true
-set :assets_roles, [:web, :app]
-set :assets_prefix, 'dev-assets'
-set :rails_assets_groups, :assets

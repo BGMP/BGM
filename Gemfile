@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.3'
 
-gem 'autoprefixer-rails', '~> 7.1.6'                            # Autoprefixer
 gem 'babosa', '~> 1.0', '>= 1.0.3'                              # Slugs
 gem 'bootsnap', '>= 1.4.4', :require => false                   # Reduces boot times through caching; required in config/boot.rb
 gem 'devise', '~> 4.7', '>= 4.7.2'                              # Authentication

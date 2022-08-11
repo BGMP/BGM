@@ -47,3 +47,6 @@ yarn-debug.log*
 
 # Capistrano
 log/capistrano.log
+
+# Secrets
+secrets.yml

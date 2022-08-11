@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.3'
 
+gem 'autoprefixer-rails', '~> 7.1.6'                            # Autoprefixer
 gem 'babosa', '~> 1.0', '>= 1.0.3'                              # Slugs
 gem 'bootsnap', '>= 1.4.4', :require => false                   # Reduces boot times through caching; required in config/boot.rb
 gem 'devise', '~> 4.7', '>= 4.7.2'                              # Authentication
@@ -40,6 +41,7 @@ group :development do
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'                         # Resolve OpenSSH problems with capistrano
   gem 'capistrano', '~> 3.14', :require => false                # Deployment
   gem 'capistrano-bundler', '~> 2.0', :require => false         # Capistrano bundler integration
+  gem 'capistrano-rails', '~> 1.6', require: false              # Ruby on Rails specific tasks for Capistrano
   gem 'ed25519', '>= 1.2', '< 2.0'                              # Resolve OpenSSH problems with capistrano
   gem 'rvm1-capistrano3', :require => false                     # Capistrano rvm integration
   gem 'web-console', '>= 4.1.0'                                 # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

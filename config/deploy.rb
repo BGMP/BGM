@@ -11,7 +11,8 @@ set :branch, 'production'
 set :user, 'deploy'
 set :stages, %w(production)
 set :deploy_to, '/home/deploy/BGM'
-set :linked_dirs, %w(.bundle)
+set :linked_dirs, ['.bundle', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads']
+set :linked_files, ['config/database.yml', 'config/secrets.yml']
 set :pty, true
 set :rvm1_ruby_version, '2.7.3'
 
@@ -29,3 +30,12 @@ end
 
 before 'rvm1:install:rvm', 'app:update_rvm_key'
 after 'deploy', 'app:restart'
+
+set :rails_env, 'production'
+set :migration_role, :db
+set :migration_servers, -> { primary(fetch(:migration_role)) }
+set :migration_command, 'db:migrate'
+set :conditionally_migrate, true
+set :assets_roles, [:web, :app]
+set :assets_prefix, 'dev-assets'
+set :rails_assets_groups, :assets

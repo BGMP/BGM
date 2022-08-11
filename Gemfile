@@ -27,7 +27,6 @@ gem 'rails', '~> 6.1.4', '>= 6.1.4.1'                           # Bundle edge Ra
 gem 'rails-i18n', '~> 6.0'                                      # i18n
 gem 'sanitize', '~> 5.2', '>= 5.2.1'                            # HTML & CSS Sanitizer
 gem 'sass-rails', '>= 6'                                        # Use SCSS for stylesheets
-gem 'therubyracer', :platforms => :ruby                         # Embed the V8 Javascript Interpreter into Ruby
 gem 'thredded', '~> 1.0'                                        # Forums engine
 gem 'turbolinks', '~> 5'                                        # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'tzinfo-data',                                              # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

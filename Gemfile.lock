@@ -408,7 +408,6 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  autoprefixer-rails (~> 7.1.6)
   babosa (~> 1.0, >= 1.0.3)
   bcrypt_pbkdf (>= 1.0, < 2.0)
   bootsnap (>= 1.4.4)

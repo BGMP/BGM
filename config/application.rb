@@ -40,7 +40,5 @@ module BGM
     config.time_zone = 'Central Time (US & Canada)'
 
     config.assets.paths << Rails.root.join('app', 'assets')
-
-    config.assets.prefix = 'dev-assets'
   end
 end

@@ -49,7 +49,7 @@
                 <td>
                   <% user_stuffs = revision_author(r.author_name) %>
                   <% if user_stuffs.nil? %>
-                    <a href="<%= provider_user_url(r.author_name) %>" target="_blank"><%= r.author_name %></a>
+                    <%= r.author_name %>
                 <% else %>
                     <a href="<%= user_path(user_stuffs.last) %>" style="color: <%= user_stuffs.first %>"><%= user_stuffs.last == '' ? r.author_name : user_stuffs.last %></a>
                   <% end %>

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h3><%= @project.name %></h3>
+      <h3 class="project-name"><%= @project.name %></h3>
     </div>
     <div class="ml-auto mb-1 mr-3">
       <a href="<%= repository_path @project.slug %>" class="btn btn-primary btn-sm">Revisions</a>
@@ -15,7 +15,9 @@
 
   <hr class="mt-1"/>
 
-  <%= render_pretty(@project.readme) %>
+  <div class="container readme">
+    <%= render_pretty(@project.readme) %>
+  </div>
 
   <br/>
 

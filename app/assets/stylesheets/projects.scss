@@ -1,3 +1,8 @@
+.project-name {
+  font-size: 40px;
+  font-weight: bold;
+}
+
 .projects-form-field {
   background-color: #212121;
   border-color: #212121;
@@ -25,3 +30,19 @@
   color: #bdbdbd;
 }
 
+.readme {
+  border: 1px solid #707070;;
+  padding: 30px 30px 30px 30px;
+  background-color: #212121;
+  border-radius: 5px;
+
+  pre {
+    color: #bdbdbd;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #282828;
+    border-radius: 6px;
+  }
+}

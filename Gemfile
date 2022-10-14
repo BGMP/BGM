@@ -21,7 +21,7 @@ gem 'peek', '~> 1.1'                                            # Profiler
 gem 'peek-git', '~> 1.0', '>= 1.0.2'                            # Peek integration with git
 gem 'peek-mysql2', '~> 1.2'                                     # Peek integration with mysql
 gem 'peek-performance_bar', '~> 1.3', '>= 1.3.1'                # Peek performance bar extension
-gem 'peek-rblineprof', '~> 0.2.0', :platforms => :ruby          # Peek into how much each line of your Rails application takes throughout a request (doesn't work on Windows)
+#gem 'peek-rblineprof', '~> 0.2.0', :platforms => :ruby          # Peek into how much each line of your Rails application takes throughout a request (doesn't work on Windows)
 gem 'puma', '~> 5.0'                                            # Use Puma as the app server
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'                           # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails-i18n', '~> 6.0'                                      # i18n

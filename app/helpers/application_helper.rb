@@ -16,7 +16,7 @@ module ApplicationHelper
   end
 
   # @param datetime [DateTime]
-  # @return [String] Pretty date string (i.e: Thursday 21st, 2022 - 06:32 AM)
+  # @return [String] Pretty date string (i.e: April 21st, 2022 - 06:32 AM)
   def pretty_time(datetime)
     datetime.strftime("%B #{datetime.day.ordinalize}, %Y - %H:%M %p")
   end

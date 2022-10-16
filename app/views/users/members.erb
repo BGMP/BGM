@@ -13,8 +13,8 @@
       </thead>
       <tbody>
       <% @users.each do |u| %>
-        <% @count += 1 %>
         <% unless u.confirmed_at.nil? %>
+          <% @count += 1 %>
           <tr>
             <td><%= @count %></td>
             <td><%= render :partial => 'user_link', :locals => { :user => u } %></td>

@@ -3,8 +3,10 @@ class UsersController < ApplicationController
 
   helper_method :username_color
 
-  def new_users
+  def members
     @users = User.all
+    @users = Kaminari.paginate_array(@users).page(params[:page]).per(20)
+    @count = (@users.current_page - 1) * (@users.limit_value + 1)
   end
 
   def show

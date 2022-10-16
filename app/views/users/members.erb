@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Website Users</h2>
+  <hr class="mt-1"/>
+
+  <% if User.any? %>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col" width="5%">#</th>
+        <th scope="col" width="20%">Name</th>
+        <th scope="col" width="75%">Registration</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @count += 1 %>
+      <% @users.each do |u| %>
+        <tr>
+          <td><%= @count %></td>
+          <td><%= render :partial => 'user_link', :locals => { :user => u } %></td>
+          <td><%= pretty_time(u.confirmed_at) %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <% paginate @users %>
+  <% else %>
+    <h5 align="center">No users to display</h5>
+  <% end %>
+</div>

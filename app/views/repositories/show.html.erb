@@ -11,7 +11,7 @@
           <% next unless p.repository.open? %>
 
           <li class="nav-item">
-            <a class="nav-link <%=  (p.repository.eql? @repository) ? 'active' : ''  %>" href="<%=  repository_path(p.repository)  %>"><%=  p.name  %></a>
+            <a class="nav-link <%=  (p.repository.eql? @repository) ? 'active' : ''  %>" href="<%= repository_path(p.repository)  %>"><%=  p.name  %></a>
           </li>
         <%  end %>
       </ul>
@@ -50,7 +50,7 @@
                   <% user_stuffs = revision_author(r.author_name) %>
                   <% if user_stuffs.nil? %>
                     <%= r.author_name %>
-                <% else %>
+                  <% else %>
                     <a href="<%= user_path(user_stuffs.last) %>" style="color: <%= user_stuffs.first %>"><%= user_stuffs.last == '' ? r.author_name : user_stuffs.last %></a>
                   <% end %>
                 </td>

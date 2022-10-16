@@ -12,8 +12,8 @@
       </tr>
       </thead>
       <tbody>
-      <% @count += 1 %>
       <% @users.each do |u| %>
+        <% @count += 1 %>
         <% unless u.confirmed_at.nil? %>
           <tr>
             <td><%= @count %></td>

@@ -12,13 +12,15 @@
       </tr>
       </thead>
       <tbody>
-      <% @count += 1 %>
       <% @users.each do |u| %>
-        <tr>
-          <td><%= @count %></td>
-          <td><%= render :partial => 'user_link', :locals => { :user => u } %></td>
-          <td><%= pretty_time(u.confirmed_at) %></td>
-        </tr>
+        <% @count += 1 %>
+        <% unless u.confirmed_at.nil? %>
+          <tr>
+            <td><%= @count %></td>
+            <td><%= render :partial => 'user_link', :locals => { :user => u } %></td>
+            <td><%= pretty_time(u.confirmed_at) %></td>
+          </tr>
+        <% end %>
       <% end %>
       </tbody>
     </table>

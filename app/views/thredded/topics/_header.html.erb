@@ -24,7 +24,7 @@
                 <a class="dropdown-item" href="<%= topic.edit_path %>" rel="nofollow"><%= t('thredded.topics.edit') %></a>
               <% end %>
               <% if topic.can_destroy? %>
-                <a class="dropdown-item" href="<%= topic.destroy_path %>" data-method="delete" data-confirm="¿Seguro que queires eliminar este tema? Esta acción NO se puede deshacer."><%= t('thredded.topics.delete_topic') %></a>
+                <a class="dropdown-item" href="<%= topic.destroy_path %>" data-method="delete" data-confirm="Are you sure?"><%= t('thredded.topics.delete_topic') %></a>
               <% end %>
               <% if thredded_current_user %>
                 <% if topic.followed? %>

@@ -8,6 +8,7 @@ BGM::Application.routes.draw do
 
   resources :projects, :param => :slug
   resources :repositories, :param => :slug, :path => :revisions
+  resources :tags, :param => :slug
 
   get 'rules', :to => 'rules#index'
   get 'trademark', :to => 'trademark#index'

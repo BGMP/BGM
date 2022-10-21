@@ -1,0 +1,41 @@
+<%= form_for @tag do |f| %>
+  <% if tag.errors.any? %>
+    <div class="container">
+      <% tag.errors.each do |error| %>
+        <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+          <%= error.full_message %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h5>Tag Info</h5>
+      <hr class="mt-1"/>
+      <div class="form-group">
+        <div class="input-group">
+          <%= f.text_field :name, :autofocus => true, :autocomplete => "name", :placeholder => "Tag Name", :class => "form-control projects-form-field" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <%= f.text_field :description, :autocomplete => "description", :placeholder => "Tag Description", :class => "form-control projects-form-field" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.color_field :color, :autocomplete => "color", :placeholder => "Tag Color (Hex)", :class => "form-control projects-form-field" %>
+      </div>
+    </div>
+  </div>
+
+  <div align="center" class="form-group">
+    <%= f.submit "Submit", :class => "btn btn-primary" %>
+    <a href="<%= tags_path %>" class="btn btn-primary" data-confirm="Are you sure?" >Back</a>
+  </div>
+<% end %>

@@ -1,9 +1,9 @@
 <div class="container">
-  <h3>Projects <small>Stuffs I work on!</small></h3>
+  <h3>Tags <small>Project tags</small></h3>
   <hr/>
 
-  <div class="projects-index">
-    <% if @projects.any? %>
+  <div class="tags-index">
+    <% if @tags.any? %>
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
@@ -13,17 +13,17 @@
           </tr>
           </thead>
           <tbody>
-          <% @projects.each do |p| %>
+          <% @tags.each do |t| %>
             <tr>
               <td>
                 <div class="row">
                   <div class="col-xl-9 col-lg-8 col-md-7">
-                    <%= link_to p.name, p %>
+                    <%= render :partial => 'tag', locals: { :tag => t } %>
                   </div>
                 </div>
               </td>
               <td>
-                <%= render_pretty(p.description) %>
+                <%= t.description %>
               </td>
             </tr>
           <% end %>
@@ -31,18 +31,14 @@
         </table>
       </div>
     <% else %>
-      <h5>No projects to display</h5>
+      <h5>No tags to display</h5>
     <% end %>
 
-    <div align="center">
+    <div>
       <% if user_signed_in? and current_user.admin? %>
-        <%= link_to 'New Project', new_project_path, :class =>  'btn btn-sm btn-primary' %>
-        <%= link_to 'Tags', tags_path, :class =>  'btn btn-sm btn-primary' %>
+        <%= link_to 'New Tag', new_tag_path, :class =>  'btn btn-sm btn-primary' %>
+        <%= link_to 'Projects', projects_path, :class =>  'btn btn-sm btn-primary' %>
       <% end %>
     </div>
   </div>
-
-  <br/>
-
-  <%= paginate @projects %>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_28_174238) do
+ActiveRecord::Schema.define(version: 2022_10_19_031652) do
 
   create_table "friendly_id_slugs", charset: "utf8mb4", force: :cascade do |t|
     t.string "slug", null: false
@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(version: 2022_07_28_174238) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "projects_tags", id: false, charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "tag_id", null: false
+    t.index ["project_id", "tag_id"], name: "index_projects_tags_on_project_id_and_tag_id"
+    t.index ["tag_id", "project_id"], name: "index_projects_tags_on_tag_id_and_project_id"
+  end
+
   create_table "repositories", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -71,6 +78,16 @@ ActiveRecord::Schema.define(version: 2022_07_28_174238) do
     t.index ["project_id"], name: "index_repositories_on_project_id"
     t.index ["slug"], name: "index_repositories_on_slug", unique: true
     t.index ["title"], name: "index_repositories_on_title", unique: true
+  end
+
+  create_table "tags", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "color"
+    t.string "slug"
+    t.index ["slug"], name: "index_tags_on_slug", unique: true
   end
 
   create_table "thredded_categories", charset: "utf8mb4", force: :cascade do |t|

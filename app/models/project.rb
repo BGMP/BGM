@@ -5,6 +5,8 @@ class Project < ApplicationRecord
   validates_format_of :name, :with => %r{\A[a-z0-9-/ ]+\z}i
 
   has_one :repository, :dependent => :destroy
+  has_and_belongs_to_many :tags
+
   before_create :create_repository
 
   accepts_nested_attributes_for(:repository, :allow_destroy => false)

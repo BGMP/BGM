@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>Editing Tag: <%= @tag.name %></h3>
+    </div>
+    <div class="ml-auto mb-1 mr-3">
+      <% if user_signed_in? and current_user.admin? %>
+        <a href="<%= tag_path(@tag) %>" class="btn btn-primary btn-sm">Show</a>
+        <a href="<%= tags_path %>" class="btn btn-primary btn-sm">Back</a>
+      <% end %>
+    </div>
+  </div>
+
+  <hr class="mt-1"/>
+
+  <%= render 'form', tag: @tag %>
+</div>

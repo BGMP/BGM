@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def index
     @projects = Project.all
-    @projects = Kaminari.paginate_array(@projects).page(params[:page]).per(3)
+    @projects = Kaminari.paginate_array(@projects).page(params[:page]).per(2)
   end
 
   def authenticate_admin

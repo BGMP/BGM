@@ -28,6 +28,12 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <div class="input-group">
+          <%= f.text_area :long_desc, :autocomplete => "long_desc", :placeholder => "Project Long Description", :class => "form-control projects-form-field" %>
+        </div>
+      </div>
+
       <h5>Select Tags</h5>
       <hr class="mt-1"/>
       <div class="form-group">
@@ -105,7 +111,7 @@
       <hr class="mt-1"/>
       <div class="form-group">
         <div class="input-group">
-          <%= f.text_area :readme, :autocomplete => "readme", :placeholder => "Long description...", :class => "form-control projects-form-field" %>
+          <%= f.text_area :readme, :autocomplete => "readme", :placeholder => "README...", :class => "form-control projects-form-field" %>
         </div>
       </div>
     </div>

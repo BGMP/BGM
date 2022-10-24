@@ -9,6 +9,7 @@
 @import "users";
 @import "thredded";
 @import "projects";
+@import "tags";
 
 body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -92,42 +93,16 @@ small {
   }
 }
 
-.project-banner-background {
-  background-image:
-          linear-gradient(
-                          rgba(0.0, 0.0, 0.0, 0.5),
-                          rgba(0.0, 0.0, 0.0, 0.5)
-          ),
-          image_url("wallpaper.png");
+.project-title {
+  font-size: 40px;
+  font-weight: bold;
 }
 
-.project-subtitle {
-  font-size: 25px;
-  text-shadow: 0.1em 0.1em 0.3em black;
-  letter-spacing: -1px;
-  padding-left: 7px;
+.project-tags {
+  padding-bottom: 10px;
 }
 
-@media screen and (min-width: 720px) {
-  .project-banner {
-    padding-top: 45px;
-    padding-left: 60px;
-  }
-
-  .project-title {
-    letter-spacing: -3px;
-    font-size: 80px;
-  }
-}
-
-@media screen and (max-width: 720px) {
-  .project-banner {
-    padding-top: 45px;
-    padding-left: 25px;
-  }
-
-  .project-title {
-    letter-spacing: -3px;
-    font-size: 70px;
-  }
+.project-tag {
+  display: inline;
+  padding-right: 5px;
 }

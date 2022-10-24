@@ -87,3 +87,33 @@
     border-radius: 5px;
   }
 }
+
+.project-title {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.project-tags {
+  padding-bottom: 10px;
+}
+
+.project-tag {
+  display: inline;
+  padding-right: 5px;
+}
+
+.project-tags-container {
+  display: inline;
+
+  .tag-label {
+    margin-right: 5px;
+  }
+}
+
+.project-vcs-title {
+  margin-top: 4px;
+}
+
+.project-splash {
+  margin-bottom: 15px;
+}

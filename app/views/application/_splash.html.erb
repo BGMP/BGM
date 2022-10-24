@@ -21,21 +21,23 @@
       <div class="row">
         <% @projects.each do |p| %>
           <div class="col-md-6">
-            <div class="project-title">
-              <%= p.name %>
-            </div>
-            <div class="project-tags">
-              <% p.tags.each do |t| %>
-                <div class="project-tag">
-                  <%= render :partial => 'tags/tag', :locals => { :tag => t } %>
-                </div>
-              <% end %>
-            </div>
-            <div class="project-description">
-              <%= truncate_string(render_pretty(p.long_desc), 350) %>
-            </div>
-            <div class="project-read-more">
-              <%= link_to 'Read More', p, :class =>  'btn btn-sm btn-primary' %>
+            <div class="project-splash">
+              <div class="project-title">
+                <%= p.name %>
+              </div>
+              <div class="project-tags">
+                <% p.tags.each do |t| %>
+                  <div class="project-tag">
+                    <%= render :partial => 'tags/tag', :locals => { :tag => t } %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="project-description">
+                <%= truncate_string(render_pretty(p.long_desc), 350) %>
+              </div>
+              <div class="project-read-more">
+                <%= link_to 'Read More', p, :class =>  'btn btn-sm btn-primary' %>
+              </div>
             </div>
           </div>
         <% end %>

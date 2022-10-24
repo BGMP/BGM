@@ -22,9 +22,11 @@
           <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             Project Description
           </button>
-          <% @project.tags.each do |t| %>
-            <%= render :partial => 'tags/tag', :locals => { :tag => t } %>
-          <% end %>
+          <div class="project-tags-container">
+            <% @project.tags.each do |t| %>
+              <%= render :partial => 'tags/tag', :locals => { :tag => t } %>
+            <% end %>
+          </div>
         </h5>
       </div>
 

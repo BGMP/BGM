@@ -54,3 +54,36 @@
     border-radius: 6px;
   }
 }
+
+#accordion {
+  .card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+
+    button {
+      color: #beb8bc;
+    }
+  }
+
+  .card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #212121;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+  }
+
+  .card-body {
+    border: 1px solid #707070;
+    padding: 30px 30px 30px 30px;
+    border-radius: 5px;
+  }
+}

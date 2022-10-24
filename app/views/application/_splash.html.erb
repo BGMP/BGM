@@ -13,24 +13,36 @@
     where I can keep everything together, and at the same time allow anybody in to share their thoughts at!
   </p>
 
-  <% if Project.any? %>
-    <h3>Personal Projects</h3>
-    <hr class="mt-1"/>
+  <div class="projects">
+    <% if Project.any? %>
+      <h3>Personal Projects</h3>
+      <hr class="mt-1"/>
 
-    <% @projects.each do |p| %>
-      <div class="project-banner-link">
-        <a href="<%= project_path(p) %>">
-          <div class="jumbotron project-banner project-banner-background">
-            <h1 class="project-title"><%= p.name %></h1>
-            <div class="project-subtitle">
-              <p><%= p.description %></p>
+      <div class="row">
+        <% @projects.each do |p| %>
+          <div class="col-md-6">
+            <div class="project-title">
+              <%= p.name %>
+            </div>
+            <div class="project-tags">
+              <% p.tags.each do |t| %>
+                <div class="project-tag">
+                  <%= render :partial => 'tags/tag', :locals => { :tag => t } %>
+                </div>
+              <% end %>
+            </div>
+            <div class="project-description">
+              <%= truncate_string(render_pretty(p.long_desc), 350) %>
+            </div>
+            <div class="project-read-more">
+              <%= link_to 'Read More', p, :class =>  'btn btn-sm btn-primary' %>
             </div>
           </div>
-        </a>
+        <% end %>
       </div>
-      <br/>
-    <% end %>
 
-    <%= paginate @projects %>
-  <% end %>
+      <br/>
+      <%= paginate @projects %>
+    <% end %>
+  </div>
 </div>

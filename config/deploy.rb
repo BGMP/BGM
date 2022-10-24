@@ -32,7 +32,7 @@ before 'rvm1:install:rvm', 'app:update_rvm_key'
 after 'deploy', 'app:restart'
 
 set :rails_env, 'production'
-set :migration_role, :db
+set :migration_role, :app
 set :migration_servers, -> { primary(fetch(:migration_role)) }
 set :migration_command, 'db:migrate'
 set :conditionally_migrate, true

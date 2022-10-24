@@ -4,7 +4,6 @@
       <h3 class="project-name"><%= @project.name %></h3>
     </div>
     <div class="ml-auto mb-1 mr-3">
-      <a href="<%= repository_path @project.slug %>" class="btn btn-primary btn-sm">Revisions</a>
       <% if user_signed_in? and current_user.admin? %>
         <a href="<%= projects_path %>" class="btn btn-primary btn-sm">Back</a>
         <a href="<%= edit_project_path(@project) %>" class="btn btn-primary btn-sm">Edit</a>
@@ -15,41 +14,22 @@
 
   <hr class="mt-1"/>
 
-  <div id="accordion">
-    <div class="card">
-      <div class="card-header" id="headingOne">
-        <h5 class="mb-0">
-          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Project Description
-          </button>
-          <div class="project-tags-container">
-            <% @project.tags.each do |t| %>
-              <%= render :partial => 'tags/tag', :locals => { :tag => t } %>
-            <% end %>
-          </div>
-        </h5>
-      </div>
+  <%= render_pretty(@project.long_desc) %>
 
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-        <div class="card-body">
-          <%= render_pretty(@project.long_desc) %>
-        </div>
-      </div>
+  <div class="row">
+    <div class="col">
+      <h5 class="project-vcs-title"><i class="fa fa-code-fork" aria-hidden="true"></i> Version Control</h5>
     </div>
-    <div class="card">
-      <div class="card-header" id="headingTwo">
-        <h5 class="mb-0">
-          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            README
-          </button>
-        </h5>
-      </div>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-        <div class="container readme">
-          <%= render_pretty(@project.readme) %>
-        </div>
-      </div>
+    <div class="ml-auto mb-1 mr-3">
+      <a href="<%= repository_path @project.slug %>" class="btn btn-primary btn-sm">Revisions</a>
     </div>
+  </div>
+  <hr class="mt-1"/>
+
+  <h6><i class="fa fa-bookmark" aria-hidden="true"></i> <b>README</b></h6>
+
+  <div class="container readme">
+    <%= render_pretty(@project.readme) %>
   </div>
 
   <br/>

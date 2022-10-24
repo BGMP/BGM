@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   include UsersHelper
 
   def index
-    @projects = Project.all
-    @projects = Kaminari.paginate_array(@projects).page(params[:page]).per(2)
+    @projects = Project.all.shuffle
+    @projects = Kaminari.paginate_array(@projects).page(params[:page]).per(6)
   end
 
   def authenticate_admin

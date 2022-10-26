@@ -71,6 +71,6 @@ class ProjectsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def project_params
     # params.fetch(:project, {})
-    params.require(:project).permit(:name, :description, :long_desc, :readme, :slug, :tag_ids => [], :repository_attributes => [:id, :title, :description, :visible, :provider, :host, :namespace, :repo, :open, :path, :branch, :deployed, :auto_deploy, :slug])
+    params.require(:project).permit(:name, :description, :long_desc, :priority, :readme, :slug, :tag_ids => [], :repository_attributes => [:id, :title, :description, :visible, :provider, :host, :namespace, :repo, :open, :path, :branch, :deployed, :auto_deploy, :slug])
   end
 end

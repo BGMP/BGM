@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include UsersHelper
 
   def index
-    @projects = Project.all
+    @projects = Project.all.sort_by { |p| p.priority }
     @projects = Kaminari.paginate_array(@projects).page(params[:page]).per(6)
   end
 

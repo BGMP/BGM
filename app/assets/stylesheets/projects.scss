@@ -1,3 +1,9 @@
+.projects {
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 .project-name {
   font-size: 40px;
   font-weight: bold;

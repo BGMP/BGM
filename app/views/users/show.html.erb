@@ -173,13 +173,16 @@
     </div>
     <div class="tab-pane fade" id="stats" role="tabpanel" aria-labelledby="stats-tab">
       <div class="profile-space"></div>
-
-      <%= Thredded::ApplicationController.renderer.new(request.env.slice('warden'))
-          .render partial: 'thredded/users/posts', locals: {
+      <% if @user.thredded_posts.empty? %>
+        <h5 class="mt-4" align="center"><%= @user.name %> has no posts</h5>
+      <% else %>
+        <%= Thredded::ApplicationController.renderer.new(request.env.slice('warden'))
+            .render partial: 'thredded/users/posts', locals: {
             posts: Thredded.posts_page_view(scope: @user.thredded_posts.order_newest_first.limit(5),
-                                        current_user: @user)
-         }
-      %>
+                                            current_user: @user)
+        }
+        %>
+      <% end %>
     </div>
   </div>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_23_083156) do
+ActiveRecord::Schema.define(version: 2022_10_26_080409) do
 
   create_table "friendly_id_slugs", charset: "utf8mb4", force: :cascade do |t|
     t.string "slug", null: false
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2022_10_23_083156) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "long_desc"
+    t.integer "priority", default: 0
   end
 
   create_table "projects_tags", id: false, charset: "utf8mb4", force: :cascade do |t|

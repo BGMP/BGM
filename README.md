@@ -20,7 +20,6 @@ Install the following services and configure them to run on their default ports:
   * Yarn
 
 Ensure bundler is installed: `gem install bundle`.
-
 Run `bundle install` to download and install dependencies.
 
 ### Setup the database

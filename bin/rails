@@ -13,7 +13,7 @@ if %w[bgm api].include? ARGV[0]
   ARGV[0] = 'server'
 end
 
-case ENV['OCN_ROLE']
+case ENV['BGM_ROLE']
 when 'bgm'
   port = 3000
   pid = 'tmp/pids/octc.pid'
